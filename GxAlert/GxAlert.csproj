@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{981BD943-D13B-4F49-B6AA-8FE2FEA752EE}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BigPicture</RootNamespace>
+    <AssemblyName>BigPicture</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.10\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Twilio.Api">
+      <HintPath>..\packages\Twilio.3.5.5\lib\3.5\Twilio.Api.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BigPicture.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BigPicture.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BigPicture.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BigPicture.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BigPicture.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionState.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="country.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataForHL7Acknowledgement.cs" />
+    <Compile Include="DB.cs" />
+    <Compile Include="deployment.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="device.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="devicedeploymenthistory.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="lga.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logger.cs" />
+    <Compile Include="LogLevel.cs" />
+    <Compile Include="notification.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notificationcountry.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notificationdeployment.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notificationlga.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notificationlog.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notificationperson.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notificationregion.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="notificationresult.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Notifications.cs" />
+    <Compile Include="notificationstate.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="person.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PersonNotification.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rawmessage.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="region.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="resulttestcode.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Server.cs" />
+    <Compile Include="state.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="test.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="testresult.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\nHapi\NHapi20\NHapi.Base\NHapi.Base.csproj">
+      <Project>{5a080123-0597-46c3-ae78-2007efb0dd68}</Project>
+      <Name>NHapi.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\nHapi\NHapi20\NHapi.Model.V25\NHapi.Model.V25.csproj">
+      <Project>{be6cdfad-560e-44cc-b23b-87252dd4392c}</Project>
+      <Name>NHapi.Model.V25</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="BigPicture.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BigPicture.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BigPicture.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BigPicture.edmx</DependentUpon>
+      <LastGenOutput>BigPicture.Context.cs</LastGenOutput>
+    </None>
+    <None Include="BigPicture.edmx.diagram">
+      <DependentUpon>BigPicture.edmx</DependentUpon>
+    </None>
+    <None Include="BigPicture.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BigPicture.edmx</DependentUpon>
+      <LastGenOutput>BigPicture.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

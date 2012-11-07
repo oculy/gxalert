@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHapi.Model.V25", "nHapi\NHapi20\NHapi.Model.V25\NHapi.Model.V25.csproj", "{BE6CDFAD-560E-44CC-B23B-87252DD4392C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHapi.Base", "nHapi\NHapi20\NHapi.Base\NHapi.Base.csproj", "{5A080123-0597-46C3-AE78-2007EFB0DD68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GxAlert", "GxAlert\GxAlert.csproj", "{981BD943-D13B-4F49-B6AA-8FE2FEA752EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE6CDFAD-560E-44CC-B23B-87252DD4392C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE6CDFAD-560E-44CC-B23B-87252DD4392C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE6CDFAD-560E-44CC-B23B-87252DD4392C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE6CDFAD-560E-44CC-B23B-87252DD4392C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A080123-0597-46C3-AE78-2007EFB0DD68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A080123-0597-46C3-AE78-2007EFB0DD68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A080123-0597-46C3-AE78-2007EFB0DD68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A080123-0597-46C3-AE78-2007EFB0DD68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{981BD943-D13B-4F49-B6AA-8FE2FEA752EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{981BD943-D13B-4F49-B6AA-8FE2FEA752EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{981BD943-D13B-4F49-B6AA-8FE2FEA752EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{981BD943-D13B-4F49-B6AA-8FE2FEA752EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

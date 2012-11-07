@@ -1,0 +1,2100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GxAlertModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="GxAlertModelStoreContainer">
+          <EntitySet Name="country" EntityType="GxAlertModel.Store.country" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="deployment" EntityType="GxAlertModel.Store.deployment" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="device" EntityType="GxAlertModel.Store.device" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="devicedeploymenthistory" EntityType="GxAlertModel.Store.devicedeploymenthistory" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="lga" EntityType="GxAlertModel.Store.lga" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="notification" EntityType="GxAlertModel.Store.notification" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="notificationcountry" EntityType="GxAlertModel.Store.notificationcountry" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="notificationdeployment" EntityType="GxAlertModel.Store.notificationdeployment" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="notificationlga" EntityType="GxAlertModel.Store.notificationlga" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="notificationlog" EntityType="GxAlertModel.Store.notificationlog" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="notificationperson" EntityType="GxAlertModel.Store.notificationperson" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="notificationregion" EntityType="GxAlertModel.Store.notificationregion" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="notificationresult" EntityType="GxAlertModel.Store.notificationresult" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="notificationstate" EntityType="GxAlertModel.Store.notificationstate" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="person" EntityType="GxAlertModel.Store.person" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="rawmessage" EntityType="GxAlertModel.Store.rawmessage" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="region" EntityType="GxAlertModel.Store.region" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="resulttestcode" EntityType="GxAlertModel.Store.resulttestcode" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="state" EntityType="GxAlertModel.Store.state" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="test" EntityType="GxAlertModel.Store.test" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="testresult" EntityType="GxAlertModel.Store.testresult" store:Type="Tables" Schema="GxAlertdev" />
+          <AssociationSet Name="DeploymentCountry" Association="GxAlertModel.Store.DeploymentCountry">
+            <End Role="country" EntitySet="country" />
+            <End Role="deployment" EntitySet="deployment" />
+          </AssociationSet>
+          <AssociationSet Name="DeploymentLga" Association="GxAlertModel.Store.DeploymentLga">
+            <End Role="lga" EntitySet="lga" />
+            <End Role="deployment" EntitySet="deployment" />
+          </AssociationSet>
+          <AssociationSet Name="DeploymentRegion" Association="GxAlertModel.Store.DeploymentRegion">
+            <End Role="region" EntitySet="region" />
+            <End Role="deployment" EntitySet="deployment" />
+          </AssociationSet>
+          <AssociationSet Name="DeploymentState" Association="GxAlertModel.Store.DeploymentState">
+            <End Role="state" EntitySet="state" />
+            <End Role="deployment" EntitySet="deployment" />
+          </AssociationSet>
+          <AssociationSet Name="DeviceDeployment" Association="GxAlertModel.Store.DeviceDeployment">
+            <End Role="deployment" EntitySet="deployment" />
+            <End Role="device" EntitySet="device" />
+          </AssociationSet>
+          <AssociationSet Name="HistoryDeployment" Association="GxAlertModel.Store.HistoryDeployment">
+            <End Role="deployment" EntitySet="deployment" />
+            <End Role="devicedeploymenthistory" EntitySet="devicedeploymenthistory" />
+          </AssociationSet>
+          <AssociationSet Name="HistoryDevice" Association="GxAlertModel.Store.HistoryDevice">
+            <End Role="device" EntitySet="device" />
+            <End Role="devicedeploymenthistory" EntitySet="devicedeploymenthistory" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationCountryCountry" Association="GxAlertModel.Store.NotificationCountryCountry">
+            <End Role="country" EntitySet="country" />
+            <End Role="notificationcountry" EntitySet="notificationcountry" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationCountryNotification" Association="GxAlertModel.Store.NotificationCountryNotification">
+            <End Role="notification" EntitySet="notification" />
+            <End Role="notificationcountry" EntitySet="notificationcountry" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationDeploymentDeployment" Association="GxAlertModel.Store.NotificationDeploymentDeployment">
+            <End Role="deployment" EntitySet="deployment" />
+            <End Role="notificationdeployment" EntitySet="notificationdeployment" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationDeploymentNotification" Association="GxAlertModel.Store.NotificationDeploymentNotification">
+            <End Role="notification" EntitySet="notification" />
+            <End Role="notificationdeployment" EntitySet="notificationdeployment" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationLgaLga" Association="GxAlertModel.Store.NotificationLgaLga">
+            <End Role="lga" EntitySet="lga" />
+            <End Role="notificationlga" EntitySet="notificationlga" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationLgaNotification" Association="GxAlertModel.Store.NotificationLgaNotification">
+            <End Role="notification" EntitySet="notification" />
+            <End Role="notificationlga" EntitySet="notificationlga" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationLogNotification" Association="GxAlertModel.Store.NotificationLogNotification">
+            <End Role="notification" EntitySet="notification" />
+            <End Role="notificationlog" EntitySet="notificationlog" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationLogPerson" Association="GxAlertModel.Store.NotificationLogPerson">
+            <End Role="person" EntitySet="person" />
+            <End Role="notificationlog" EntitySet="notificationlog" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationPersonNotification" Association="GxAlertModel.Store.NotificationPersonNotification">
+            <End Role="notification" EntitySet="notification" />
+            <End Role="notificationperson" EntitySet="notificationperson" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationPersonPerson" Association="GxAlertModel.Store.NotificationPersonPerson">
+            <End Role="person" EntitySet="person" />
+            <End Role="notificationperson" EntitySet="notificationperson" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationRegionNotification" Association="GxAlertModel.Store.NotificationRegionNotification">
+            <End Role="notification" EntitySet="notification" />
+            <End Role="notificationregion" EntitySet="notificationregion" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationRegionRegion" Association="GxAlertModel.Store.NotificationRegionRegion">
+            <End Role="region" EntitySet="region" />
+            <End Role="notificationregion" EntitySet="notificationregion" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationResultNotification" Association="GxAlertModel.Store.NotificationResultNotification">
+            <End Role="notification" EntitySet="notification" />
+            <End Role="notificationresult" EntitySet="notificationresult" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationStateNotification" Association="GxAlertModel.Store.NotificationStateNotification">
+            <End Role="notification" EntitySet="notification" />
+            <End Role="notificationstate" EntitySet="notificationstate" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationStateState" Association="GxAlertModel.Store.NotificationStateState">
+            <End Role="state" EntitySet="state" />
+            <End Role="notificationstate" EntitySet="notificationstate" />
+          </AssociationSet>
+          <AssociationSet Name="PersonCountry" Association="GxAlertModel.Store.PersonCountry">
+            <End Role="country" EntitySet="country" />
+            <End Role="person" EntitySet="person" />
+          </AssociationSet>
+          <AssociationSet Name="PersonLga" Association="GxAlertModel.Store.PersonLga">
+            <End Role="lga" EntitySet="lga" />
+            <End Role="person" EntitySet="person" />
+          </AssociationSet>
+          <AssociationSet Name="PersonRegion" Association="GxAlertModel.Store.PersonRegion">
+            <End Role="region" EntitySet="region" />
+            <End Role="person" EntitySet="person" />
+          </AssociationSet>
+          <AssociationSet Name="PersonState" Association="GxAlertModel.Store.PersonState">
+            <End Role="state" EntitySet="state" />
+            <End Role="person" EntitySet="person" />
+          </AssociationSet>
+          <AssociationSet Name="RawMessageTest" Association="GxAlertModel.Store.RawMessageTest">
+            <End Role="test" EntitySet="test" />
+            <End Role="rawmessage" EntitySet="rawmessage" />
+          </AssociationSet>
+          <AssociationSet Name="RegionCountry" Association="GxAlertModel.Store.RegionCountry">
+            <End Role="country" EntitySet="country" />
+            <End Role="region" EntitySet="region" />
+          </AssociationSet>
+          <AssociationSet Name="ResultTestCodeId" Association="GxAlertModel.Store.ResultTestCodeId">
+            <End Role="resulttestcode" EntitySet="resulttestcode" />
+            <End Role="notificationresult" EntitySet="notificationresult" />
+          </AssociationSet>
+          <AssociationSet Name="ResultTestCodeTestResult" Association="GxAlertModel.Store.ResultTestCodeTestResult">
+            <End Role="resulttestcode" EntitySet="resulttestcode" />
+            <End Role="testresult" EntitySet="testresult" />
+          </AssociationSet>
+          <AssociationSet Name="StateCountry" Association="GxAlertModel.Store.StateCountry">
+            <End Role="country" EntitySet="country" />
+            <End Role="state" EntitySet="state" />
+          </AssociationSet>
+          <AssociationSet Name="StateLga" Association="GxAlertModel.Store.StateLga">
+            <End Role="state" EntitySet="state" />
+            <End Role="lga" EntitySet="lga" />
+          </AssociationSet>
+          <AssociationSet Name="TestDeployment" Association="GxAlertModel.Store.TestDeployment">
+            <End Role="deployment" EntitySet="deployment" />
+            <End Role="test" EntitySet="test" />
+          </AssociationSet>
+          <AssociationSet Name="TestTestResult" Association="GxAlertModel.Store.TestTestResult">
+            <End Role="test" EntitySet="test" />
+            <End Role="testresult" EntitySet="testresult" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Abbreviation" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Culture" Type="varchar" Nullable="false" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="deployment">
+          <Key>
+            <PropertyRef Name="DeploymentId" />
+          </Key>
+          <Property Name="DeploymentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="HostId" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="Description" Type="varchar" MaxLength="1200" />
+          <Property Name="CountryId" Type="int" />
+          <Property Name="RegionId" Type="int" />
+          <Property Name="StateId" Type="int" />
+          <Property Name="LgaId" Type="int" />
+          <Property Name="City" Type="varchar" MaxLength="255" />
+          <Property Name="Street1" Type="varchar" MaxLength="255" />
+          <Property Name="Street2" Type="varchar" MaxLength="255" />
+          <Property Name="Zip" Type="varchar" MaxLength="45" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="Longitude" Type="float" />
+          <Property Name="InsertedOn" Type="datetime" Nullable="false" />
+          <Property Name="Insertedby" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+          <Property Name="Updatedby" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Approved" Type="bit" Nullable="false" />
+          <Property Name="ApprovedOn" Type="datetime" />
+          <Property Name="ApprovedBy" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="device">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Serial" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="CurrentDeploymentId" Type="int" Nullable="false" />
+          <Property Name="InsertedOn" Type="datetime" Nullable="false" />
+          <Property Name="InsertedBy" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="devicedeploymenthistory">
+          <Key>
+            <PropertyRef Name="DeviceDeploymentHistoryId" />
+          </Key>
+          <Property Name="DeviceDeploymentHistoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DeviceId" Type="int" Nullable="false" />
+          <Property Name="DeploymentId" Type="int" Nullable="false" />
+          <Property Name="InsertedOn" Type="datetime" Nullable="false" />
+          <Property Name="InsertedBy" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="lga">
+          <Key>
+            <PropertyRef Name="LgaId" />
+          </Key>
+          <Property Name="LgaId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StateId" Type="int" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="notification">
+          <Key>
+            <PropertyRef Name="NotificationId" />
+          </Key>
+          <Property Name="NotificationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NotificationName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="EmailSubject" Type="varchar" MaxLength="255" />
+          <Property Name="EmailBody" Type="varchar" MaxLength="1200" />
+          <Property Name="SmsBody" Type="varchar" MaxLength="1200" />
+          <Property Name="PhoneBody" Type="varchar" MaxLength="1200" />
+          <Property Name="InsertedOn" Type="datetime" Nullable="false" />
+          <Property Name="InsertedBy" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="notificationcountry">
+          <Key>
+            <PropertyRef Name="NotificationCountryId" />
+          </Key>
+          <Property Name="NotificationCountryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NotificationId" Type="int" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="notificationdeployment">
+          <Key>
+            <PropertyRef Name="NotificationDeploymentId" />
+          </Key>
+          <Property Name="NotificationDeploymentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NotificationId" Type="int" Nullable="false" />
+          <Property Name="DeploymentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="notificationlga">
+          <Key>
+            <PropertyRef Name="NotificationLgaId" />
+          </Key>
+          <Property Name="NotificationLgaId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NotificationId" Type="int" Nullable="false" />
+          <Property Name="LgaId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="notificationlog">
+          <Key>
+            <PropertyRef Name="NotificationLogId" />
+          </Key>
+          <Property Name="NotificationLogId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NotificationId" Type="int" />
+          <Property Name="NotificationName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="PersonId" Type="int" />
+          <Property Name="PersonName" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="Subject" Type="varchar" MaxLength="140" />
+          <Property Name="Body" Type="varchar" MaxLength="1200" />
+          <Property Name="Sms" Type="bit" Nullable="false" />
+          <Property Name="Email" Type="bit" Nullable="false" />
+          <Property Name="Phone" Type="bit" Nullable="false" />
+          <Property Name="SentOn" Type="datetime" Nullable="false" />
+          <Property Name="SentBy" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="notificationperson">
+          <Key>
+            <PropertyRef Name="NotificationPersonId" />
+          </Key>
+          <Property Name="NotificationPersonId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NotificationId" Type="int" Nullable="false" />
+          <Property Name="PersonId" Type="int" Nullable="false" />
+          <Property Name="Sms" Type="bit" Nullable="false" />
+          <Property Name="Email" Type="bit" Nullable="false" />
+          <Property Name="Phone" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="notificationregion">
+          <Key>
+            <PropertyRef Name="NotificationRegionId" />
+          </Key>
+          <Property Name="NotificationRegionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NotificationId" Type="int" Nullable="false" />
+          <Property Name="RegionId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="notificationresult">
+          <Key>
+            <PropertyRef Name="NotificationResultId" />
+          </Key>
+          <Property Name="NotificationResultId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NotificationId" Type="int" Nullable="false" />
+          <Property Name="ResultTestCodeId" Type="int" Nullable="false" />
+          <Property Name="Result" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="notificationstate">
+          <Key>
+            <PropertyRef Name="NotificationStateId" />
+          </Key>
+          <Property Name="NotificationStateId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NotificationId" Type="int" Nullable="false" />
+          <Property Name="StateId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="person">
+          <Key>
+            <PropertyRef Name="PersonId" />
+          </Key>
+          <Property Name="PersonId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Email" Type="varchar" MaxLength="500" />
+          <Property Name="Phone" Type="varchar" MaxLength="45" />
+          <Property Name="Cell" Type="varchar" MaxLength="45" />
+          <Property Name="CountryId" Type="int" />
+          <Property Name="RegionId" Type="int" />
+          <Property Name="StateId" Type="int" />
+          <Property Name="LgaId" Type="int" />
+        </EntityType>
+        <EntityType Name="rawmessage">
+          <Key>
+            <PropertyRef Name="RawMessageId" />
+          </Key>
+          <Property Name="RawMessageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TestId" Type="int" />
+          <Property Name="Message" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="region">
+          <Key>
+            <PropertyRef Name="RegionId" />
+          </Key>
+          <Property Name="RegionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="resulttestcode">
+          <Key>
+            <PropertyRef Name="ResultTestCodeId" />
+          </Key>
+          <Property Name="ResultTestCodeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ResultTestCode" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Description" Type="varchar" MaxLength="1200" />
+          <Property Name="InsertedOn" Type="datetime" Nullable="false" />
+          <Property Name="InsertedBy" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="state">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Name="StateId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Abbreviation" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="TestId" />
+          </Key>
+          <Property Name="TestId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DeploymentId" Type="int" Nullable="false" />
+          <Property Name="MessageSentOn" Type="datetime" Nullable="false" />
+          <Property Name="SenderVersion" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="SenderUser" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="SenderIp" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="PatientId" Type="varchar" MaxLength="45" />
+          <Property Name="TestStartedOn" Type="datetime" Nullable="false" />
+          <Property Name="TestEndedOn" Type="datetime" Nullable="false" />
+          <Property Name="AssayHostTestCode" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="CartridgeSerial" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="CartridgeExpirationDate" Type="datetime" Nullable="false" />
+          <Property Name="ReagentLotId" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="SystemName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="ModuleSerial" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="ComputerName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="AssayName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="AssayVersion" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="ResultText" Type="varchar" Nullable="false" MaxLength="1200" />
+          <Property Name="SampleId" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="Notes" Type="text" />
+          <Property Name="InsertedOn" Type="datetime" Nullable="false" />
+          <Property Name="InsertedBy" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="testresult">
+          <Key>
+            <PropertyRef Name="TestResultId" />
+          </Key>
+          <Property Name="TestResultId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TestId" Type="int" Nullable="false" />
+          <Property Name="ResultTestCodeId" Type="int" Nullable="false" />
+          <Property Name="Result" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="InsertedOn" Type="datetime" Nullable="false" />
+          <Property Name="InsertedBy" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <Association Name="DeploymentCountry">
+          <End Role="country" Type="GxAlertModel.Store.country" Multiplicity="0..1" />
+          <End Role="deployment" Type="GxAlertModel.Store.deployment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="deployment">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DeploymentLga">
+          <End Role="lga" Type="GxAlertModel.Store.lga" Multiplicity="0..1" />
+          <End Role="deployment" Type="GxAlertModel.Store.deployment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lga">
+              <PropertyRef Name="LgaId" />
+            </Principal>
+            <Dependent Role="deployment">
+              <PropertyRef Name="LgaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DeploymentRegion">
+          <End Role="region" Type="GxAlertModel.Store.region" Multiplicity="0..1" />
+          <End Role="deployment" Type="GxAlertModel.Store.deployment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="RegionId" />
+            </Principal>
+            <Dependent Role="deployment">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DeploymentState">
+          <End Role="state" Type="GxAlertModel.Store.state" Multiplicity="0..1" />
+          <End Role="deployment" Type="GxAlertModel.Store.deployment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="state">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="deployment">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DeviceDeployment">
+          <End Role="deployment" Type="GxAlertModel.Store.deployment" Multiplicity="1" />
+          <End Role="device" Type="GxAlertModel.Store.device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="deployment">
+              <PropertyRef Name="DeploymentId" />
+            </Principal>
+            <Dependent Role="device">
+              <PropertyRef Name="CurrentDeploymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HistoryDeployment">
+          <End Role="deployment" Type="GxAlertModel.Store.deployment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="devicedeploymenthistory" Type="GxAlertModel.Store.devicedeploymenthistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="deployment">
+              <PropertyRef Name="DeploymentId" />
+            </Principal>
+            <Dependent Role="devicedeploymenthistory">
+              <PropertyRef Name="DeploymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HistoryDevice">
+          <End Role="device" Type="GxAlertModel.Store.device" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="devicedeploymenthistory" Type="GxAlertModel.Store.devicedeploymenthistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="device">
+              <PropertyRef Name="DeviceId" />
+            </Principal>
+            <Dependent Role="devicedeploymenthistory">
+              <PropertyRef Name="DeviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationCountryCountry">
+          <End Role="country" Type="GxAlertModel.Store.country" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="notificationcountry" Type="GxAlertModel.Store.notificationcountry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="notificationcountry">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationCountryNotification">
+          <End Role="notification" Type="GxAlertModel.Store.notification" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="notificationcountry" Type="GxAlertModel.Store.notificationcountry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="notification">
+              <PropertyRef Name="NotificationId" />
+            </Principal>
+            <Dependent Role="notificationcountry">
+              <PropertyRef Name="NotificationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationDeploymentDeployment">
+          <End Role="deployment" Type="GxAlertModel.Store.deployment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="notificationdeployment" Type="GxAlertModel.Store.notificationdeployment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="deployment">
+              <PropertyRef Name="DeploymentId" />
+            </Principal>
+            <Dependent Role="notificationdeployment">
+              <PropertyRef Name="DeploymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationDeploymentNotification">
+          <End Role="notification" Type="GxAlertModel.Store.notification" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="notificationdeployment" Type="GxAlertModel.Store.notificationdeployment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="notification">
+              <PropertyRef Name="NotificationId" />
+            </Principal>
+            <Dependent Role="notificationdeployment">
+              <PropertyRef Name="NotificationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationLgaLga">
+          <End Role="lga" Type="GxAlertModel.Store.lga" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="notificationlga" Type="GxAlertModel.Store.notificationlga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lga">
+              <PropertyRef Name="LgaId" />
+            </Principal>
+            <Dependent Role="notificationlga">
+              <PropertyRef Name="LgaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationLgaNotification">
+          <End Role="notification" Type="GxAlertModel.Store.notification" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="notificationlga" Type="GxAlertModel.Store.notificationlga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="notification">
+              <PropertyRef Name="NotificationId" />
+            </Principal>
+            <Dependent Role="notificationlga">
+              <PropertyRef Name="NotificationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationLogNotification">
+          <End Role="notification" Type="GxAlertModel.Store.notification" Multiplicity="0..1" />
+          <End Role="notificationlog" Type="GxAlertModel.Store.notificationlog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="notification">
+              <PropertyRef Name="NotificationId" />
+            </Principal>
+            <Dependent Role="notificationlog">
+              <PropertyRef Name="NotificationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationLogPerson">
+          <End Role="person" Type="GxAlertModel.Store.person" Multiplicity="0..1" />
+          <End Role="notificationlog" Type="GxAlertModel.Store.notificationlog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="person">
+              <PropertyRef Name="PersonId" />
+            </Principal>
+            <Dependent Role="notificationlog">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationPersonNotification">
+          <End Role="notification" Type="GxAlertModel.Store.notification" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="notificationperson" Type="GxAlertModel.Store.notificationperson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="notification">
+              <PropertyRef Name="NotificationId" />
+            </Principal>
+            <Dependent Role="notificationperson">
+              <PropertyRef Name="NotificationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationPersonPerson">
+          <End Role="person" Type="GxAlertModel.Store.person" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="notificationperson" Type="GxAlertModel.Store.notificationperson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="person">
+              <PropertyRef Name="PersonId" />
+            </Principal>
+            <Dependent Role="notificationperson">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationRegionNotification">
+          <End Role="notification" Type="GxAlertModel.Store.notification" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="notificationregion" Type="GxAlertModel.Store.notificationregion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="notification">
+              <PropertyRef Name="NotificationId" />
+            </Principal>
+            <Dependent Role="notificationregion">
+              <PropertyRef Name="NotificationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationRegionRegion">
+          <End Role="region" Type="GxAlertModel.Store.region" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="notificationregion" Type="GxAlertModel.Store.notificationregion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="RegionId" />
+            </Principal>
+            <Dependent Role="notificationregion">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationResultNotification">
+          <End Role="notification" Type="GxAlertModel.Store.notification" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="notificationresult" Type="GxAlertModel.Store.notificationresult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="notification">
+              <PropertyRef Name="NotificationId" />
+            </Principal>
+            <Dependent Role="notificationresult">
+              <PropertyRef Name="NotificationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationStateNotification">
+          <End Role="notification" Type="GxAlertModel.Store.notification" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="notificationstate" Type="GxAlertModel.Store.notificationstate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="notification">
+              <PropertyRef Name="NotificationId" />
+            </Principal>
+            <Dependent Role="notificationstate">
+              <PropertyRef Name="NotificationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationStateState">
+          <End Role="state" Type="GxAlertModel.Store.state" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="notificationstate" Type="GxAlertModel.Store.notificationstate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="state">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="notificationstate">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonCountry">
+          <End Role="country" Type="GxAlertModel.Store.country" Multiplicity="0..1" />
+          <End Role="person" Type="GxAlertModel.Store.person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="person">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonLga">
+          <End Role="lga" Type="GxAlertModel.Store.lga" Multiplicity="0..1" />
+          <End Role="person" Type="GxAlertModel.Store.person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lga">
+              <PropertyRef Name="LgaId" />
+            </Principal>
+            <Dependent Role="person">
+              <PropertyRef Name="LgaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonRegion">
+          <End Role="region" Type="GxAlertModel.Store.region" Multiplicity="0..1" />
+          <End Role="person" Type="GxAlertModel.Store.person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="RegionId" />
+            </Principal>
+            <Dependent Role="person">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonState">
+          <End Role="state" Type="GxAlertModel.Store.state" Multiplicity="0..1" />
+          <End Role="person" Type="GxAlertModel.Store.person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="state">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="person">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RawMessageTest">
+          <End Role="test" Type="GxAlertModel.Store.test" Multiplicity="0..1" />
+          <End Role="rawmessage" Type="GxAlertModel.Store.rawmessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test">
+              <PropertyRef Name="TestId" />
+            </Principal>
+            <Dependent Role="rawmessage">
+              <PropertyRef Name="TestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RegionCountry">
+          <End Role="country" Type="GxAlertModel.Store.country" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="region" Type="GxAlertModel.Store.region" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="region">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ResultTestCodeId">
+          <End Role="resulttestcode" Type="GxAlertModel.Store.resulttestcode" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="notificationresult" Type="GxAlertModel.Store.notificationresult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="resulttestcode">
+              <PropertyRef Name="ResultTestCodeId" />
+            </Principal>
+            <Dependent Role="notificationresult">
+              <PropertyRef Name="ResultTestCodeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ResultTestCodeTestResult">
+          <End Role="resulttestcode" Type="GxAlertModel.Store.resulttestcode" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="testresult" Type="GxAlertModel.Store.testresult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="resulttestcode">
+              <PropertyRef Name="ResultTestCodeId" />
+            </Principal>
+            <Dependent Role="testresult">
+              <PropertyRef Name="ResultTestCodeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StateCountry">
+          <End Role="country" Type="GxAlertModel.Store.country" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="state" Type="GxAlertModel.Store.state" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="state">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StateLga">
+          <End Role="state" Type="GxAlertModel.Store.state" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="lga" Type="GxAlertModel.Store.lga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="state">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="lga">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestDeployment">
+          <End Role="deployment" Type="GxAlertModel.Store.deployment" Multiplicity="1" />
+          <End Role="test" Type="GxAlertModel.Store.test" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="deployment">
+              <PropertyRef Name="DeploymentId" />
+            </Principal>
+            <Dependent Role="test">
+              <PropertyRef Name="DeploymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestTestResult">
+          <End Role="test" Type="GxAlertModel.Store.test" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="testresult" Type="GxAlertModel.Store.testresult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test">
+              <PropertyRef Name="TestId" />
+            </Principal>
+            <Dependent Role="testresult">
+              <PropertyRef Name="TestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GxAlertModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="GxAlertEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="countries" EntityType="GxAlertModel.country" />
+          <EntitySet Name="devices" EntityType="GxAlertModel.device" />
+          <EntitySet Name="devicedeploymenthistories" EntityType="GxAlertModel.devicedeploymenthistory" />
+          <EntitySet Name="lgas" EntityType="GxAlertModel.lga" />
+          <EntitySet Name="people" EntityType="GxAlertModel.person" />
+          <EntitySet Name="rawmessages" EntityType="GxAlertModel.rawmessage" />
+          <EntitySet Name="regions" EntityType="GxAlertModel.region" />
+          <EntitySet Name="resulttestcodes" EntityType="GxAlertModel.resulttestcode" />
+          <EntitySet Name="states" EntityType="GxAlertModel.state" />
+          <EntitySet Name="tests" EntityType="GxAlertModel.test" />
+          <EntitySet Name="testresults" EntityType="GxAlertModel.testresult" />
+          <AssociationSet Name="PersonCountry" Association="GxAlertModel.PersonCountry">
+            <End Role="country" EntitySet="countries" />
+            <End Role="person" EntitySet="people" />
+          </AssociationSet>
+          <AssociationSet Name="RegionCountry" Association="GxAlertModel.RegionCountry">
+            <End Role="country" EntitySet="countries" />
+            <End Role="region" EntitySet="regions" />
+          </AssociationSet>
+          <AssociationSet Name="StateCountry" Association="GxAlertModel.StateCountry">
+            <End Role="country" EntitySet="countries" />
+            <End Role="state" EntitySet="states" />
+          </AssociationSet>
+          <AssociationSet Name="HistoryDevice" Association="GxAlertModel.HistoryDevice">
+            <End Role="device" EntitySet="devices" />
+            <End Role="devicedeploymenthistory" EntitySet="devicedeploymenthistories" />
+          </AssociationSet>
+          <AssociationSet Name="PersonLga" Association="GxAlertModel.PersonLga">
+            <End Role="lga" EntitySet="lgas" />
+            <End Role="person" EntitySet="people" />
+          </AssociationSet>
+          <AssociationSet Name="StateLga" Association="GxAlertModel.StateLga">
+            <End Role="state" EntitySet="states" />
+            <End Role="lga" EntitySet="lgas" />
+          </AssociationSet>
+          <AssociationSet Name="PersonRegion" Association="GxAlertModel.PersonRegion">
+            <End Role="region" EntitySet="regions" />
+            <End Role="person" EntitySet="people" />
+          </AssociationSet>
+          <AssociationSet Name="PersonState" Association="GxAlertModel.PersonState">
+            <End Role="state" EntitySet="states" />
+            <End Role="person" EntitySet="people" />
+          </AssociationSet>
+          <AssociationSet Name="RawMessageTest" Association="GxAlertModel.RawMessageTest">
+            <End Role="test" EntitySet="tests" />
+            <End Role="rawmessage" EntitySet="rawmessages" />
+          </AssociationSet>
+          <AssociationSet Name="ResultTestCodeTestResult" Association="GxAlertModel.ResultTestCodeTestResult">
+            <End Role="resulttestcode" EntitySet="resulttestcodes" />
+            <End Role="testresult" EntitySet="testresults" />
+          </AssociationSet>
+          <AssociationSet Name="TestTestResult" Association="GxAlertModel.TestTestResult">
+            <End Role="test" EntitySet="tests" />
+            <End Role="testresult" EntitySet="testresults" />
+          </AssociationSet>
+          <EntitySet Name="notificationcountries" EntityType="GxAlertModel.notificationcountry" />
+          <EntitySet Name="notificationdeployments" EntityType="GxAlertModel.notificationdeployment" />
+          <EntitySet Name="notificationlgas" EntityType="GxAlertModel.notificationlga" />
+          <EntitySet Name="notificationpersons" EntityType="GxAlertModel.notificationperson" />
+          <EntitySet Name="notificationregions" EntityType="GxAlertModel.notificationregion" />
+          <EntitySet Name="notificationresults" EntityType="GxAlertModel.notificationresult" />
+          <EntitySet Name="notificationstates" EntityType="GxAlertModel.notificationstate" />
+          <AssociationSet Name="NotificationCountryCountry" Association="GxAlertModel.NotificationCountryCountry">
+            <End Role="country" EntitySet="countries" />
+            <End Role="notificationcountry" EntitySet="notificationcountries" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationLgaLga" Association="GxAlertModel.NotificationLgaLga">
+            <End Role="lga" EntitySet="lgas" />
+            <End Role="notificationlga" EntitySet="notificationlgas" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationPersonPerson" Association="GxAlertModel.NotificationPersonPerson">
+            <End Role="person" EntitySet="people" />
+            <End Role="notificationperson" EntitySet="notificationpersons" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationRegionRegion" Association="GxAlertModel.NotificationRegionRegion">
+            <End Role="region" EntitySet="regions" />
+            <End Role="notificationregion" EntitySet="notificationregions" />
+          </AssociationSet>
+          <AssociationSet Name="ResultTestCodeId" Association="GxAlertModel.ResultTestCodeId">
+            <End Role="resulttestcode" EntitySet="resulttestcodes" />
+            <End Role="notificationresult" EntitySet="notificationresults" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationStateState" Association="GxAlertModel.NotificationStateState">
+            <End Role="state" EntitySet="states" />
+            <End Role="notificationstate" EntitySet="notificationstates" />
+          </AssociationSet>
+          <EntitySet Name="notifications" EntityType="GxAlertModel.notification" />
+          <AssociationSet Name="NotificationCountryNotification" Association="GxAlertModel.NotificationCountryNotification">
+            <End Role="notification" EntitySet="notifications" />
+            <End Role="notificationcountry" EntitySet="notificationcountries" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationDeploymentNotification" Association="GxAlertModel.NotificationDeploymentNotification">
+            <End Role="notification" EntitySet="notifications" />
+            <End Role="notificationdeployment" EntitySet="notificationdeployments" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationLgaNotification" Association="GxAlertModel.NotificationLgaNotification">
+            <End Role="notification" EntitySet="notifications" />
+            <End Role="notificationlga" EntitySet="notificationlgas" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationPersonNotification" Association="GxAlertModel.NotificationPersonNotification">
+            <End Role="notification" EntitySet="notifications" />
+            <End Role="notificationperson" EntitySet="notificationpersons" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationRegionNotification" Association="GxAlertModel.NotificationRegionNotification">
+            <End Role="notification" EntitySet="notifications" />
+            <End Role="notificationregion" EntitySet="notificationregions" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationResultNotification" Association="GxAlertModel.NotificationResultNotification">
+            <End Role="notification" EntitySet="notifications" />
+            <End Role="notificationresult" EntitySet="notificationresults" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationStateNotification" Association="GxAlertModel.NotificationStateNotification">
+            <End Role="notification" EntitySet="notifications" />
+            <End Role="notificationstate" EntitySet="notificationstates" />
+          </AssociationSet>
+          <EntitySet Name="notificationlogs" EntityType="GxAlertModel.notificationlog" />
+          <AssociationSet Name="NotificationLogNotification" Association="GxAlertModel.NotificationLogNotification">
+            <End Role="notification" EntitySet="notifications" />
+            <End Role="notificationlog" EntitySet="notificationlogs" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationLogPerson" Association="GxAlertModel.NotificationLogPerson">
+            <End Role="person" EntitySet="people" />
+            <End Role="notificationlog" EntitySet="notificationlogs" />
+          </AssociationSet>
+          <EntitySet Name="deployments" EntityType="GxAlertModel.deployment" />
+          <AssociationSet Name="DeploymentCountry" Association="GxAlertModel.DeploymentCountry">
+            <End Role="country" EntitySet="countries" />
+            <End Role="deployment" EntitySet="deployments" />
+          </AssociationSet>
+          <AssociationSet Name="DeploymentLga" Association="GxAlertModel.DeploymentLga">
+            <End Role="lga" EntitySet="lgas" />
+            <End Role="deployment" EntitySet="deployments" />
+          </AssociationSet>
+          <AssociationSet Name="DeploymentRegion" Association="GxAlertModel.DeploymentRegion">
+            <End Role="region" EntitySet="regions" />
+            <End Role="deployment" EntitySet="deployments" />
+          </AssociationSet>
+          <AssociationSet Name="DeploymentState" Association="GxAlertModel.DeploymentState">
+            <End Role="state" EntitySet="states" />
+            <End Role="deployment" EntitySet="deployments" />
+          </AssociationSet>
+          <AssociationSet Name="DeviceDeployment" Association="GxAlertModel.DeviceDeployment">
+            <End Role="deployment" EntitySet="deployments" />
+            <End Role="device" EntitySet="devices" />
+          </AssociationSet>
+          <AssociationSet Name="HistoryDeployment" Association="GxAlertModel.HistoryDeployment">
+            <End Role="deployment" EntitySet="deployments" />
+            <End Role="devicedeploymenthistory" EntitySet="devicedeploymenthistories" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationDeploymentDeployment" Association="GxAlertModel.NotificationDeploymentDeployment">
+            <End Role="deployment" EntitySet="deployments" />
+            <End Role="notificationdeployment" EntitySet="notificationdeployments" />
+          </AssociationSet>
+          <AssociationSet Name="TestDeployment" Association="GxAlertModel.TestDeployment">
+            <End Role="deployment" EntitySet="deployments" />
+            <End Role="test" EntitySet="tests" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Type="Int32" Name="CountryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Abbreviation" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="people" Relationship="GxAlertModel.PersonCountry" FromRole="country" ToRole="person" />
+          <NavigationProperty Name="regions" Relationship="GxAlertModel.RegionCountry" FromRole="country" ToRole="region" />
+          <NavigationProperty Name="states" Relationship="GxAlertModel.StateCountry" FromRole="country" ToRole="state" />
+          <NavigationProperty Name="notificationcountries" Relationship="GxAlertModel.NotificationCountryCountry" FromRole="country" ToRole="notificationcountry" />
+          <Property Type="String" Name="Culture" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="deployments" Relationship="GxAlertModel.DeploymentCountry" FromRole="country" ToRole="deployment" />
+        </EntityType>
+        <EntityType Name="device">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Type="Int32" Name="DeviceId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Serial" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CurrentDeploymentId" Nullable="false" />
+          <Property Type="DateTime" Name="InsertedOn" Nullable="false" Precision="3" />
+          <Property Type="String" Name="InsertedBy" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="UpdatedOn" Nullable="false" Precision="3" />
+          <Property Type="String" Name="UpdatedBy" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="devicedeploymenthistories" Relationship="GxAlertModel.HistoryDevice" FromRole="device" ToRole="devicedeploymenthistory" />
+          <NavigationProperty Name="deployment" Relationship="GxAlertModel.DeviceDeployment" FromRole="device" ToRole="deployment" />
+        </EntityType>
+        <EntityType Name="devicedeploymenthistory">
+          <Key>
+            <PropertyRef Name="DeviceDeploymentHistoryId" />
+          </Key>
+          <Property Type="Int32" Name="DeviceDeploymentHistoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="DeviceId" Nullable="false" />
+          <Property Type="Int32" Name="DeploymentId" Nullable="false" />
+          <Property Type="DateTime" Name="InsertedOn" Nullable="false" Precision="3" />
+          <Property Type="String" Name="InsertedBy" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="device" Relationship="GxAlertModel.HistoryDevice" FromRole="devicedeploymenthistory" ToRole="device" />
+          <NavigationProperty Name="deployment" Relationship="GxAlertModel.HistoryDeployment" FromRole="devicedeploymenthistory" ToRole="deployment" />
+        </EntityType>
+        <EntityType Name="lga">
+          <Key>
+            <PropertyRef Name="LgaId" />
+          </Key>
+          <Property Type="Int32" Name="LgaId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="StateId" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="people" Relationship="GxAlertModel.PersonLga" FromRole="lga" ToRole="person" />
+          <NavigationProperty Name="state" Relationship="GxAlertModel.StateLga" FromRole="lga" ToRole="state" />
+          <NavigationProperty Name="notificationlgas" Relationship="GxAlertModel.NotificationLgaLga" FromRole="lga" ToRole="notificationlga" />
+          <NavigationProperty Name="deployments" Relationship="GxAlertModel.DeploymentLga" FromRole="lga" ToRole="deployment" />
+        </EntityType>
+        <EntityType Name="person">
+          <Key>
+            <PropertyRef Name="PersonId" />
+          </Key>
+          <Property Type="Int32" Name="PersonId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Email" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Cell" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CountryId" />
+          <Property Type="Int32" Name="RegionId" />
+          <Property Type="Int32" Name="StateId" />
+          <Property Type="Int32" Name="LgaId" />
+          <NavigationProperty Name="country" Relationship="GxAlertModel.PersonCountry" FromRole="person" ToRole="country" />
+          <NavigationProperty Name="lga" Relationship="GxAlertModel.PersonLga" FromRole="person" ToRole="lga" />
+          <NavigationProperty Name="region" Relationship="GxAlertModel.PersonRegion" FromRole="person" ToRole="region" />
+          <NavigationProperty Name="state" Relationship="GxAlertModel.PersonState" FromRole="person" ToRole="state" />
+          <NavigationProperty Name="notificationpersons" Relationship="GxAlertModel.NotificationPersonPerson" FromRole="person" ToRole="notificationperson" />
+          <Property Type="String" Name="Phone" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="notificationlogs" Relationship="GxAlertModel.NotificationLogPerson" FromRole="person" ToRole="notificationlog" />
+        </EntityType>
+        <EntityType Name="rawmessage">
+          <Key>
+            <PropertyRef Name="RawMessageId" />
+          </Key>
+          <Property Type="Int32" Name="RawMessageId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="TestId" />
+          <Property Type="String" Name="Message" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="test" Relationship="GxAlertModel.RawMessageTest" FromRole="rawmessage" ToRole="test" />
+        </EntityType>
+        <EntityType Name="region">
+          <Key>
+            <PropertyRef Name="RegionId" />
+          </Key>
+          <Property Type="Int32" Name="RegionId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CountryId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="country" Relationship="GxAlertModel.RegionCountry" FromRole="region" ToRole="country" />
+          <NavigationProperty Name="people" Relationship="GxAlertModel.PersonRegion" FromRole="region" ToRole="person" />
+          <NavigationProperty Name="notificationregions" Relationship="GxAlertModel.NotificationRegionRegion" FromRole="region" ToRole="notificationregion" />
+          <NavigationProperty Name="deployments" Relationship="GxAlertModel.DeploymentRegion" FromRole="region" ToRole="deployment" />
+        </EntityType>
+        <EntityType Name="resulttestcode">
+          <Key>
+            <PropertyRef Name="ResultTestCodeId" />
+          </Key>
+          <Property Type="Int32" Name="ResultTestCodeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ResultTestCode1" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" MaxLength="1200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="InsertedOn" Nullable="false" Precision="3" />
+          <Property Type="String" Name="InsertedBy" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="UpdatedOn" Nullable="false" Precision="3" />
+          <Property Type="String" Name="UpdatedBy" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="testresults" Relationship="GxAlertModel.ResultTestCodeTestResult" FromRole="resulttestcode" ToRole="testresult" />
+          <NavigationProperty Name="notificationresults" Relationship="GxAlertModel.ResultTestCodeId" FromRole="resulttestcode" ToRole="notificationresult" />
+        </EntityType>
+        <EntityType Name="state">
+          <Key>
+            <PropertyRef Name="StateId" />
+          </Key>
+          <Property Type="Int32" Name="StateId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CountryId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Abbreviation" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="country" Relationship="GxAlertModel.StateCountry" FromRole="state" ToRole="country" />
+          <NavigationProperty Name="lgas" Relationship="GxAlertModel.StateLga" FromRole="state" ToRole="lga" />
+          <NavigationProperty Name="people" Relationship="GxAlertModel.PersonState" FromRole="state" ToRole="person" />
+          <NavigationProperty Name="notificationstates" Relationship="GxAlertModel.NotificationStateState" FromRole="state" ToRole="notificationstate" />
+          <NavigationProperty Name="deployments" Relationship="GxAlertModel.DeploymentState" FromRole="state" ToRole="deployment" />
+        </EntityType>
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="TestId" />
+          </Key>
+          <Property Type="Int32" Name="TestId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="DeploymentId" Nullable="false" />
+          <Property Type="DateTime" Name="MessageSentOn" Nullable="false" Precision="3" />
+          <Property Type="String" Name="SenderVersion" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SenderUser" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SenderIp" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PatientId" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="TestStartedOn" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="TestEndedOn" Nullable="false" Precision="3" />
+          <Property Type="String" Name="AssayHostTestCode" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CartridgeSerial" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CartridgeExpirationDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="ReagentLotId" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SystemName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModuleSerial" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ComputerName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AssayName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AssayVersion" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ResultText" Nullable="false" MaxLength="1200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SampleId" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Notes" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="InsertedOn" Nullable="false" Precision="3" />
+          <Property Type="String" Name="InsertedBy" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="UpdatedOn" Nullable="false" Precision="3" />
+          <Property Type="String" Name="UpdatedBy" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="rawmessages" Relationship="GxAlertModel.RawMessageTest" FromRole="test" ToRole="rawmessage" />
+          <NavigationProperty Name="testresults" Relationship="GxAlertModel.TestTestResult" FromRole="test" ToRole="testresult" />
+          <NavigationProperty Name="deployment" Relationship="GxAlertModel.TestDeployment" FromRole="test" ToRole="deployment" />
+        </EntityType>
+        <EntityType Name="testresult">
+          <Key>
+            <PropertyRef Name="TestResultId" />
+          </Key>
+          <Property Type="Int32" Name="TestResultId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="TestId" Nullable="false" />
+          <Property Type="Int32" Name="ResultTestCodeId" Nullable="false" />
+          <Property Type="String" Name="Result" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="InsertedOn" Nullable="false" Precision="3" />
+          <Property Type="String" Name="InsertedBy" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="UpdatedOn" Nullable="false" Precision="3" />
+          <Property Type="String" Name="UpdatedBy" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="resulttestcode" Relationship="GxAlertModel.ResultTestCodeTestResult" FromRole="testresult" ToRole="resulttestcode" />
+          <NavigationProperty Name="test" Relationship="GxAlertModel.TestTestResult" FromRole="testresult" ToRole="test" />
+        </EntityType>
+        <Association Name="PersonCountry">
+          <End Type="GxAlertModel.country" Role="country" Multiplicity="0..1" />
+          <End Type="GxAlertModel.person" Role="person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="person">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RegionCountry">
+          <End Type="GxAlertModel.country" Role="country" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.region" Role="region" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="region">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StateCountry">
+          <End Type="GxAlertModel.country" Role="country" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.state" Role="state" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="state">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HistoryDevice">
+          <End Type="GxAlertModel.device" Role="device" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.devicedeploymenthistory" Role="devicedeploymenthistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="device">
+              <PropertyRef Name="DeviceId" />
+            </Principal>
+            <Dependent Role="devicedeploymenthistory">
+              <PropertyRef Name="DeviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonLga">
+          <End Type="GxAlertModel.lga" Role="lga" Multiplicity="0..1" />
+          <End Type="GxAlertModel.person" Role="person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lga">
+              <PropertyRef Name="LgaId" />
+            </Principal>
+            <Dependent Role="person">
+              <PropertyRef Name="LgaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StateLga">
+          <End Type="GxAlertModel.state" Role="state" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.lga" Role="lga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="state">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="lga">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonRegion">
+          <End Type="GxAlertModel.region" Role="region" Multiplicity="0..1" />
+          <End Type="GxAlertModel.person" Role="person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="RegionId" />
+            </Principal>
+            <Dependent Role="person">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonState">
+          <End Type="GxAlertModel.state" Role="state" Multiplicity="0..1" />
+          <End Type="GxAlertModel.person" Role="person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="state">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="person">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RawMessageTest">
+          <End Type="GxAlertModel.test" Role="test" Multiplicity="0..1" />
+          <End Type="GxAlertModel.rawmessage" Role="rawmessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test">
+              <PropertyRef Name="TestId" />
+            </Principal>
+            <Dependent Role="rawmessage">
+              <PropertyRef Name="TestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ResultTestCodeTestResult">
+          <End Type="GxAlertModel.resulttestcode" Role="resulttestcode" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.testresult" Role="testresult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="resulttestcode">
+              <PropertyRef Name="ResultTestCodeId" />
+            </Principal>
+            <Dependent Role="testresult">
+              <PropertyRef Name="ResultTestCodeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestTestResult">
+          <End Type="GxAlertModel.test" Role="test" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.testresult" Role="testresult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test">
+              <PropertyRef Name="TestId" />
+            </Principal>
+            <Dependent Role="testresult">
+              <PropertyRef Name="TestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="notificationcountry">
+          <Key>
+            <PropertyRef Name="NotificationCountryId" />
+          </Key>
+          <Property Type="Int32" Name="NotificationCountryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="NotificationId" Nullable="false" />
+          <Property Type="Int32" Name="CountryId" Nullable="false" />
+          <NavigationProperty Name="country" Relationship="GxAlertModel.NotificationCountryCountry" FromRole="notificationcountry" ToRole="country" />
+          <NavigationProperty Name="notification" Relationship="GxAlertModel.NotificationCountryNotification" FromRole="notificationcountry" ToRole="notification" />
+        </EntityType>
+        <EntityType Name="notificationdeployment">
+          <Key>
+            <PropertyRef Name="NotificationDeploymentId" />
+          </Key>
+          <Property Type="Int32" Name="NotificationDeploymentId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="NotificationId" Nullable="false" />
+          <Property Type="Int32" Name="DeploymentId" Nullable="false" />
+          <NavigationProperty Name="notification" Relationship="GxAlertModel.NotificationDeploymentNotification" FromRole="notificationdeployment" ToRole="notification" />
+          <NavigationProperty Name="deployment" Relationship="GxAlertModel.NotificationDeploymentDeployment" FromRole="notificationdeployment" ToRole="deployment" />
+        </EntityType>
+        <EntityType Name="notificationlga">
+          <Key>
+            <PropertyRef Name="NotificationLgaId" />
+          </Key>
+          <Property Type="Int32" Name="NotificationLgaId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="NotificationId" Nullable="false" />
+          <Property Type="Int32" Name="LgaId" Nullable="false" />
+          <NavigationProperty Name="lga" Relationship="GxAlertModel.NotificationLgaLga" FromRole="notificationlga" ToRole="lga" />
+          <NavigationProperty Name="notification" Relationship="GxAlertModel.NotificationLgaNotification" FromRole="notificationlga" ToRole="notification" />
+        </EntityType>
+        <EntityType Name="notificationperson">
+          <Key>
+            <PropertyRef Name="NotificationPersonId" />
+          </Key>
+          <Property Type="Int32" Name="NotificationPersonId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="NotificationId" Nullable="false" />
+          <Property Type="Int32" Name="PersonId" Nullable="false" />
+          <NavigationProperty Name="person" Relationship="GxAlertModel.NotificationPersonPerson" FromRole="notificationperson" ToRole="person" />
+          <Property Type="Boolean" Name="Sms" Nullable="false" />
+          <Property Type="Boolean" Name="Email" Nullable="false" />
+          <Property Type="Boolean" Name="Phone" Nullable="false" />
+          <NavigationProperty Name="notification" Relationship="GxAlertModel.NotificationPersonNotification" FromRole="notificationperson" ToRole="notification" />
+        </EntityType>
+        <EntityType Name="notificationregion">
+          <Key>
+            <PropertyRef Name="NotificationRegionId" />
+          </Key>
+          <Property Type="Int32" Name="NotificationRegionId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="NotificationId" Nullable="false" />
+          <Property Type="Int32" Name="RegionId" Nullable="false" />
+          <NavigationProperty Name="region" Relationship="GxAlertModel.NotificationRegionRegion" FromRole="notificationregion" ToRole="region" />
+          <NavigationProperty Name="notification" Relationship="GxAlertModel.NotificationRegionNotification" FromRole="notificationregion" ToRole="notification" />
+        </EntityType>
+        <EntityType Name="notificationresult">
+          <Key>
+            <PropertyRef Name="NotificationResultId" />
+          </Key>
+          <Property Type="Int32" Name="NotificationResultId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="NotificationId" Nullable="false" />
+          <Property Type="Int32" Name="ResultTestCodeId" Nullable="false" />
+          <Property Type="String" Name="Result" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="resulttestcode" Relationship="GxAlertModel.ResultTestCodeId" FromRole="notificationresult" ToRole="resulttestcode" />
+          <NavigationProperty Name="notification" Relationship="GxAlertModel.NotificationResultNotification" FromRole="notificationresult" ToRole="notification" />
+        </EntityType>
+        <EntityType Name="notificationstate">
+          <Key>
+            <PropertyRef Name="NotificationStateId" />
+          </Key>
+          <Property Type="Int32" Name="NotificationStateId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="NotificationId" Nullable="false" />
+          <Property Type="Int32" Name="StateId" Nullable="false" />
+          <NavigationProperty Name="state" Relationship="GxAlertModel.NotificationStateState" FromRole="notificationstate" ToRole="state" />
+          <NavigationProperty Name="notification" Relationship="GxAlertModel.NotificationStateNotification" FromRole="notificationstate" ToRole="notification" />
+        </EntityType>
+        <Association Name="NotificationCountryCountry">
+          <End Type="GxAlertModel.country" Role="country" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.notificationcountry" Role="notificationcountry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="notificationcountry">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationLgaLga">
+          <End Type="GxAlertModel.lga" Role="lga" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.notificationlga" Role="notificationlga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lga">
+              <PropertyRef Name="LgaId" />
+            </Principal>
+            <Dependent Role="notificationlga">
+              <PropertyRef Name="LgaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationPersonPerson">
+          <End Type="GxAlertModel.person" Role="person" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.notificationperson" Role="notificationperson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="person">
+              <PropertyRef Name="PersonId" />
+            </Principal>
+            <Dependent Role="notificationperson">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationRegionRegion">
+          <End Type="GxAlertModel.region" Role="region" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.notificationregion" Role="notificationregion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="RegionId" />
+            </Principal>
+            <Dependent Role="notificationregion">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ResultTestCodeId">
+          <End Type="GxAlertModel.resulttestcode" Role="resulttestcode" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.notificationresult" Role="notificationresult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="resulttestcode">
+              <PropertyRef Name="ResultTestCodeId" />
+            </Principal>
+            <Dependent Role="notificationresult">
+              <PropertyRef Name="ResultTestCodeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationStateState">
+          <End Type="GxAlertModel.state" Role="state" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.notificationstate" Role="notificationstate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="state">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="notificationstate">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="notification">
+          <Key>
+            <PropertyRef Name="NotificationId" />
+          </Key>
+          <Property Type="Int32" Name="NotificationId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="EmailSubject" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EmailBody" MaxLength="1200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SmsBody" MaxLength="1200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="InsertedOn" Nullable="false" Precision="3" />
+          <Property Type="String" Name="InsertedBy" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="UpdatedOn" Nullable="false" Precision="3" />
+          <Property Type="String" Name="UpdatedBy" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="notificationcountries" Relationship="GxAlertModel.NotificationCountryNotification" FromRole="notification" ToRole="notificationcountry" />
+          <NavigationProperty Name="notificationdeployments" Relationship="GxAlertModel.NotificationDeploymentNotification" FromRole="notification" ToRole="notificationdeployment" />
+          <NavigationProperty Name="notificationlgas" Relationship="GxAlertModel.NotificationLgaNotification" FromRole="notification" ToRole="notificationlga" />
+          <NavigationProperty Name="notificationpersons" Relationship="GxAlertModel.NotificationPersonNotification" FromRole="notification" ToRole="notificationperson" />
+          <NavigationProperty Name="notificationregions" Relationship="GxAlertModel.NotificationRegionNotification" FromRole="notification" ToRole="notificationregion" />
+          <NavigationProperty Name="notificationresults" Relationship="GxAlertModel.NotificationResultNotification" FromRole="notification" ToRole="notificationresult" />
+          <NavigationProperty Name="notificationstates" Relationship="GxAlertModel.NotificationStateNotification" FromRole="notification" ToRole="notificationstate" />
+          <Property Type="String" Name="PhoneBody" MaxLength="1200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NotificationName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="notificationlogs" Relationship="GxAlertModel.NotificationLogNotification" FromRole="notification" ToRole="notificationlog" />
+        </EntityType>
+        <Association Name="NotificationCountryNotification">
+          <End Type="GxAlertModel.notification" Role="notification" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.notificationcountry" Role="notificationcountry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="notification">
+              <PropertyRef Name="NotificationId" />
+            </Principal>
+            <Dependent Role="notificationcountry">
+              <PropertyRef Name="NotificationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationDeploymentNotification">
+          <End Type="GxAlertModel.notification" Role="notification" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.notificationdeployment" Role="notificationdeployment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="notification">
+              <PropertyRef Name="NotificationId" />
+            </Principal>
+            <Dependent Role="notificationdeployment">
+              <PropertyRef Name="NotificationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationLgaNotification">
+          <End Type="GxAlertModel.notification" Role="notification" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.notificationlga" Role="notificationlga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="notification">
+              <PropertyRef Name="NotificationId" />
+            </Principal>
+            <Dependent Role="notificationlga">
+              <PropertyRef Name="NotificationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationPersonNotification">
+          <End Type="GxAlertModel.notification" Role="notification" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.notificationperson" Role="notificationperson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="notification">
+              <PropertyRef Name="NotificationId" />
+            </Principal>
+            <Dependent Role="notificationperson">
+              <PropertyRef Name="NotificationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationRegionNotification">
+          <End Type="GxAlertModel.notification" Role="notification" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.notificationregion" Role="notificationregion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="notification">
+              <PropertyRef Name="NotificationId" />
+            </Principal>
+            <Dependent Role="notificationregion">
+              <PropertyRef Name="NotificationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationResultNotification">
+          <End Type="GxAlertModel.notification" Role="notification" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.notificationresult" Role="notificationresult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="notification">
+              <PropertyRef Name="NotificationId" />
+            </Principal>
+            <Dependent Role="notificationresult">
+              <PropertyRef Name="NotificationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationStateNotification">
+          <End Type="GxAlertModel.notification" Role="notification" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.notificationstate" Role="notificationstate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="notification">
+              <PropertyRef Name="NotificationId" />
+            </Principal>
+            <Dependent Role="notificationstate">
+              <PropertyRef Name="NotificationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="notificationlog">
+          <Key>
+            <PropertyRef Name="NotificationLogId" />
+          </Key>
+          <Property Type="Int32" Name="NotificationLogId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="NotificationId" />
+          <Property Type="String" Name="NotificationName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="PersonId" />
+          <Property Type="String" Name="PersonName" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Subject" MaxLength="140" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Body" MaxLength="1200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="notification" Relationship="GxAlertModel.NotificationLogNotification" FromRole="notificationlog" ToRole="notification" />
+          <NavigationProperty Name="person" Relationship="GxAlertModel.NotificationLogPerson" FromRole="notificationlog" ToRole="person" />
+          <Property Type="Boolean" Name="Sms" Nullable="false" />
+          <Property Type="Boolean" Name="Email" Nullable="false" />
+          <Property Type="Boolean" Name="Phone" Nullable="false" />
+          <Property Type="DateTime" Name="SentOn" Nullable="false" Precision="3" />
+          <Property Type="String" Name="SentBy" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="NotificationLogNotification">
+          <End Type="GxAlertModel.notification" Role="notification" Multiplicity="0..1" />
+          <End Type="GxAlertModel.notificationlog" Role="notificationlog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="notification">
+              <PropertyRef Name="NotificationId" />
+            </Principal>
+            <Dependent Role="notificationlog">
+              <PropertyRef Name="NotificationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationLogPerson">
+          <End Type="GxAlertModel.person" Role="person" Multiplicity="0..1" />
+          <End Type="GxAlertModel.notificationlog" Role="notificationlog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="person">
+              <PropertyRef Name="PersonId" />
+            </Principal>
+            <Dependent Role="notificationlog">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="deployment">
+          <Key>
+            <PropertyRef Name="DeploymentId" />
+          </Key>
+          <Property Type="Int32" Name="DeploymentId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="HostId" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" MaxLength="1200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CountryId" />
+          <Property Type="Int32" Name="RegionId" />
+          <Property Type="Int32" Name="StateId" />
+          <Property Type="Int32" Name="LgaId" />
+          <Property Type="String" Name="City" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Street1" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Street2" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Zip" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="Single" Name="Latitude" />
+          <Property Type="Single" Name="Longitude" />
+          <Property Type="DateTime" Name="InsertedOn" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Insertedby" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="UpdatedOn" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Updatedby" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Approved" Nullable="false" />
+          <Property Type="DateTime" Name="ApprovedOn" Precision="3" />
+          <Property Type="String" Name="ApprovedBy" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="country" Relationship="GxAlertModel.DeploymentCountry" FromRole="deployment" ToRole="country" />
+          <NavigationProperty Name="lga" Relationship="GxAlertModel.DeploymentLga" FromRole="deployment" ToRole="lga" />
+          <NavigationProperty Name="region" Relationship="GxAlertModel.DeploymentRegion" FromRole="deployment" ToRole="region" />
+          <NavigationProperty Name="state" Relationship="GxAlertModel.DeploymentState" FromRole="deployment" ToRole="state" />
+          <NavigationProperty Name="devices" Relationship="GxAlertModel.DeviceDeployment" FromRole="deployment" ToRole="device" />
+          <NavigationProperty Name="devicedeploymenthistories" Relationship="GxAlertModel.HistoryDeployment" FromRole="deployment" ToRole="devicedeploymenthistory" />
+          <NavigationProperty Name="notificationdeployments" Relationship="GxAlertModel.NotificationDeploymentDeployment" FromRole="deployment" ToRole="notificationdeployment" />
+          <NavigationProperty Name="tests" Relationship="GxAlertModel.TestDeployment" FromRole="deployment" ToRole="test" />
+        </EntityType>
+        <Association Name="DeploymentCountry">
+          <End Type="GxAlertModel.country" Role="country" Multiplicity="0..1" />
+          <End Type="GxAlertModel.deployment" Role="deployment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="deployment">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DeploymentLga">
+          <End Type="GxAlertModel.lga" Role="lga" Multiplicity="0..1" />
+          <End Type="GxAlertModel.deployment" Role="deployment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lga">
+              <PropertyRef Name="LgaId" />
+            </Principal>
+            <Dependent Role="deployment">
+              <PropertyRef Name="LgaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DeploymentRegion">
+          <End Type="GxAlertModel.region" Role="region" Multiplicity="0..1" />
+          <End Type="GxAlertModel.deployment" Role="deployment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="RegionId" />
+            </Principal>
+            <Dependent Role="deployment">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DeploymentState">
+          <End Type="GxAlertModel.state" Role="state" Multiplicity="0..1" />
+          <End Type="GxAlertModel.deployment" Role="deployment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="state">
+              <PropertyRef Name="StateId" />
+            </Principal>
+            <Dependent Role="deployment">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DeviceDeployment">
+          <End Type="GxAlertModel.deployment" Role="deployment" Multiplicity="1" />
+          <End Type="GxAlertModel.device" Role="device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="deployment">
+              <PropertyRef Name="DeploymentId" />
+            </Principal>
+            <Dependent Role="device">
+              <PropertyRef Name="CurrentDeploymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HistoryDeployment">
+          <End Type="GxAlertModel.deployment" Role="deployment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.devicedeploymenthistory" Role="devicedeploymenthistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="deployment">
+              <PropertyRef Name="DeploymentId" />
+            </Principal>
+            <Dependent Role="devicedeploymenthistory">
+              <PropertyRef Name="DeploymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NotificationDeploymentDeployment">
+          <End Type="GxAlertModel.deployment" Role="deployment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GxAlertModel.notificationdeployment" Role="notificationdeployment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="deployment">
+              <PropertyRef Name="DeploymentId" />
+            </Principal>
+            <Dependent Role="notificationdeployment">
+              <PropertyRef Name="DeploymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestDeployment">
+          <End Type="GxAlertModel.deployment" Role="deployment" Multiplicity="1" />
+          <End Type="GxAlertModel.test" Role="test" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="deployment">
+              <PropertyRef Name="DeploymentId" />
+            </Principal>
+            <Dependent Role="test">
+              <PropertyRef Name="DeploymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GxAlertModelStoreContainer" CdmEntityContainer="GxAlertEntities">
+          <EntitySetMapping Name="countries">
+            <EntityTypeMapping TypeName="GxAlertModel.country">
+              <MappingFragment StoreEntitySet="country">
+                <ScalarProperty Name="Culture" ColumnName="Culture" />
+                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="devices">
+            <EntityTypeMapping TypeName="GxAlertModel.device">
+              <MappingFragment StoreEntitySet="device">
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+                <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+                <ScalarProperty Name="CurrentDeploymentId" ColumnName="CurrentDeploymentId" />
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="devicedeploymenthistories">
+            <EntityTypeMapping TypeName="GxAlertModel.devicedeploymenthistory">
+              <MappingFragment StoreEntitySet="devicedeploymenthistory">
+                <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+                <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+                <ScalarProperty Name="DeploymentId" ColumnName="DeploymentId" />
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="DeviceDeploymentHistoryId" ColumnName="DeviceDeploymentHistoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lgas">
+            <EntityTypeMapping TypeName="GxAlertModel.lga">
+              <MappingFragment StoreEntitySet="lga">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="LgaId" ColumnName="LgaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="people">
+            <EntityTypeMapping TypeName="GxAlertModel.person">
+              <MappingFragment StoreEntitySet="person">
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="LgaId" ColumnName="LgaId" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Cell" ColumnName="Cell" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rawmessages">
+            <EntityTypeMapping TypeName="GxAlertModel.rawmessage">
+              <MappingFragment StoreEntitySet="rawmessage">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="TestId" ColumnName="TestId" />
+                <ScalarProperty Name="RawMessageId" ColumnName="RawMessageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="regions">
+            <EntityTypeMapping TypeName="GxAlertModel.region">
+              <MappingFragment StoreEntitySet="region">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="resulttestcodes">
+            <EntityTypeMapping TypeName="GxAlertModel.resulttestcode">
+              <MappingFragment StoreEntitySet="resulttestcode">
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+                <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ResultTestCode1" ColumnName="ResultTestCode" />
+                <ScalarProperty Name="ResultTestCodeId" ColumnName="ResultTestCodeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="states">
+            <EntityTypeMapping TypeName="GxAlertModel.state">
+              <MappingFragment StoreEntitySet="state">
+                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tests">
+            <EntityTypeMapping TypeName="GxAlertModel.test">
+              <MappingFragment StoreEntitySet="test">
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+                <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="SampleId" ColumnName="SampleId" />
+                <ScalarProperty Name="ResultText" ColumnName="ResultText" />
+                <ScalarProperty Name="AssayVersion" ColumnName="AssayVersion" />
+                <ScalarProperty Name="AssayName" ColumnName="AssayName" />
+                <ScalarProperty Name="ComputerName" ColumnName="ComputerName" />
+                <ScalarProperty Name="ModuleSerial" ColumnName="ModuleSerial" />
+                <ScalarProperty Name="SystemName" ColumnName="SystemName" />
+                <ScalarProperty Name="ReagentLotId" ColumnName="ReagentLotId" />
+                <ScalarProperty Name="CartridgeExpirationDate" ColumnName="CartridgeExpirationDate" />
+                <ScalarProperty Name="CartridgeSerial" ColumnName="CartridgeSerial" />
+                <ScalarProperty Name="AssayHostTestCode" ColumnName="AssayHostTestCode" />
+                <ScalarProperty Name="TestEndedOn" ColumnName="TestEndedOn" />
+                <ScalarProperty Name="TestStartedOn" ColumnName="TestStartedOn" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="SenderIp" ColumnName="SenderIp" />
+                <ScalarProperty Name="SenderUser" ColumnName="SenderUser" />
+                <ScalarProperty Name="SenderVersion" ColumnName="SenderVersion" />
+                <ScalarProperty Name="MessageSentOn" ColumnName="MessageSentOn" />
+                <ScalarProperty Name="DeploymentId" ColumnName="DeploymentId" />
+                <ScalarProperty Name="TestId" ColumnName="TestId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="testresults">
+            <EntityTypeMapping TypeName="GxAlertModel.testresult">
+              <MappingFragment StoreEntitySet="testresult">
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+                <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="ResultTestCodeId" ColumnName="ResultTestCodeId" />
+                <ScalarProperty Name="TestId" ColumnName="TestId" />
+                <ScalarProperty Name="TestResultId" ColumnName="TestResultId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notificationcountries">
+            <EntityTypeMapping TypeName="GxAlertModel.notificationcountry">
+              <MappingFragment StoreEntitySet="notificationcountry">
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+                <ScalarProperty Name="NotificationCountryId" ColumnName="NotificationCountryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notificationdeployments">
+            <EntityTypeMapping TypeName="GxAlertModel.notificationdeployment">
+              <MappingFragment StoreEntitySet="notificationdeployment">
+                <ScalarProperty Name="DeploymentId" ColumnName="DeploymentId" />
+                <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+                <ScalarProperty Name="NotificationDeploymentId" ColumnName="NotificationDeploymentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notificationlgas">
+            <EntityTypeMapping TypeName="GxAlertModel.notificationlga">
+              <MappingFragment StoreEntitySet="notificationlga">
+                <ScalarProperty Name="LgaId" ColumnName="LgaId" />
+                <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+                <ScalarProperty Name="NotificationLgaId" ColumnName="NotificationLgaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notificationpersons">
+            <EntityTypeMapping TypeName="GxAlertModel.notificationperson">
+              <MappingFragment StoreEntitySet="notificationperson">
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Sms" ColumnName="Sms" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+                <ScalarProperty Name="NotificationPersonId" ColumnName="NotificationPersonId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notificationregions">
+            <EntityTypeMapping TypeName="GxAlertModel.notificationregion">
+              <MappingFragment StoreEntitySet="notificationregion">
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+                <ScalarProperty Name="NotificationRegionId" ColumnName="NotificationRegionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notificationresults">
+            <EntityTypeMapping TypeName="GxAlertModel.notificationresult">
+              <MappingFragment StoreEntitySet="notificationresult">
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="ResultTestCodeId" ColumnName="ResultTestCodeId" />
+                <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+                <ScalarProperty Name="NotificationResultId" ColumnName="NotificationResultId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notificationstates">
+            <EntityTypeMapping TypeName="GxAlertModel.notificationstate">
+              <MappingFragment StoreEntitySet="notificationstate">
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+                <ScalarProperty Name="NotificationStateId" ColumnName="NotificationStateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notifications">
+            <EntityTypeMapping TypeName="GxAlertModel.notification">
+              <MappingFragment StoreEntitySet="notification">
+                <ScalarProperty Name="NotificationName" ColumnName="NotificationName" />
+                <ScalarProperty Name="PhoneBody" ColumnName="PhoneBody" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+                <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+                <ScalarProperty Name="SmsBody" ColumnName="SmsBody" />
+                <ScalarProperty Name="EmailBody" ColumnName="EmailBody" />
+                <ScalarProperty Name="EmailSubject" ColumnName="EmailSubject" />
+                <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notificationlogs">
+            <EntityTypeMapping TypeName="GxAlertModel.notificationlog">
+              <MappingFragment StoreEntitySet="notificationlog">
+                <ScalarProperty Name="SentBy" ColumnName="SentBy" />
+                <ScalarProperty Name="SentOn" ColumnName="SentOn" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Sms" ColumnName="Sms" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="NotificationName" ColumnName="NotificationName" />
+                <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+                <ScalarProperty Name="NotificationLogId" ColumnName="NotificationLogId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="deployments">
+            <EntityTypeMapping TypeName="GxAlertModel.deployment">
+              <MappingFragment StoreEntitySet="deployment">
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="ApprovedOn" ColumnName="ApprovedOn" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="Insertedby" ColumnName="Insertedby" />
+                <ScalarProperty Name="InsertedOn" ColumnName="InsertedOn" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Street2" ColumnName="Street2" />
+                <ScalarProperty Name="Street1" ColumnName="Street1" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="LgaId" ColumnName="LgaId" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="HostId" ColumnName="HostId" />
+                <ScalarProperty Name="DeploymentId" ColumnName="DeploymentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
