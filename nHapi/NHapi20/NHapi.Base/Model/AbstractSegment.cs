@@ -51,8 +51,8 @@ namespace NHapi.Base.Model
         /// </summary>
         /// <param name="parentStructure">parent group
         /// </param>
-        /// <param name="factory">all implementors need a model class factory to find datatype classes, so we 
-        /// include it as an arg here to emphasize that fact ... AbstractSegment doesn't actually 
+        /// <param name="factory">all implementers need a model class factory to find data type classes, so we 
+        /// include it as an argument here to emphasize that fact ... AbstractSegment doesn't actually 
         /// use it though
         /// </param>
         public AbstractSegment(IGroup parentStructure, IModelClassFactory factory)
