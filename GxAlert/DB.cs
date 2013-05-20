@@ -271,5 +271,32 @@
                 bpe.SaveChanges();
             }
         }
+
+        /// <summary>
+        /// Get all raw messages that don't have a test ID for reparsing
+        /// </summary>
+        /// <returns>List of raw messages</returns>
+        internal static List<rawmessage> GetRawMessagesWithoutTestId()
+        {
+            using (GxAlertEntities bpe = new GxAlertEntities())
+            {
+                return bpe.rawmessages.Where(r => r.TestId == null).ToList();
+            }
+        }
+
+        /// <summary>
+        /// Sets the testId of a raw message
+        /// </summary>
+        /// <param name="rawMessageId">ID of the raw message</param>
+        /// <param name="testId">ID of test</param>
+        internal static void UpdateRawMessageTestId(int rawMessageId, int testId)
+        {
+            using (GxAlertEntities bpe = new GxAlertEntities())
+            {
+                var rawMessage = bpe.rawmessages.First(r => r.RawMessageId == rawMessageId);
+                rawMessage.TestId = testId;
+                bpe.SaveChanges();
+            }
+        }
     }
 }

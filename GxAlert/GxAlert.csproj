@@ -134,6 +134,7 @@
     <Compile Include="region.cs">
       <DependentUpon>BigPicture.tt</DependentUpon>
     </Compile>
+    <Compile Include="Reparse.cs" />
     <Compile Include="resulttestcode.cs">
       <DependentUpon>BigPicture.tt</DependentUpon>
     </Compile>
