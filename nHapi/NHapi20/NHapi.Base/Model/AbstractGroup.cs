@@ -29,7 +29,7 @@ namespace NHapi.Base.Model
 
 
     /// <summary> A partial implementation of Group.  Subclasses correspond to specific
-    /// groups of segments (and/or other sub-groups) that are implicitely defined by message structures  
+    /// groups of segments (and/or other sub-groups) that are implicitly defined by message structures  
     /// in the HL7 specification.  A subclass should define it's group structure by putting repeated calls to 
     /// the add(...) method in it's constructor.  Each call to add(...) adds a specific component to the 
     /// Group.  
@@ -116,7 +116,7 @@ namespace NHapi.Base.Model
         /// </summary>
         /// <param name="parentStructure">the group to which this Group belongs.
         /// </param>
-        /// <param name="factory">the factory for classes of segments, groups, and datatypes under this group
+        /// <param name="factory">the factory for classes of segments, groups, and data types under this group
         /// </param>
         protected internal AbstractGroup(IGroup parentStructure, IModelClassFactory factory)
         {
@@ -128,7 +128,7 @@ namespace NHapi.Base.Model
         /// <summary> This constructor should only be used by classes that implement Message directly.
         /// 
         /// </summary>
-        /// <param name="factory">the factory for classes of segments, groups, and datatypes under this group
+        /// <param name="factory">the factory for classes of segments, groups, and data types under this group
         /// </param>
         protected internal AbstractGroup(IModelClassFactory factory)
         {
@@ -192,7 +192,7 @@ namespace NHapi.Base.Model
         }
 
         /// <summary> Expands the group definition to include a segment that is not 
-        /// defined by HL7 to be part of this group (eg an unregistered Z segment). 
+        /// defined by HL7 to be part of this group (e.g. an unregistered Z segment). 
         /// The new segment is slotted at the end of the group.  Thenceforward if 
         /// such a segment is encountered it will be parsed into this location. 
         /// If the segment name is unrecognized a GenericSegment is used.  The 
@@ -225,7 +225,7 @@ namespace NHapi.Base.Model
         /// get(...) calls.
         /// </summary>
         /// <returns> the actual name used to store this structure (may be appended with 
-        /// an integer if there are duplcates in the same Group).  
+        /// an integer if there are duplicates in the same Group).  
         /// </returns>
         protected internal virtual System.String add(System.Type c, bool required, bool repeating)
         {

@@ -86,7 +86,7 @@ namespace NHapi.Base.Model
 
         ///<summary>
         /// <param name="message">message to which this type belongs
-        /// <param name="description">The descption of the primitive</param>
+        /// <param name="description">The description of the primitive</param>
         /// </param>
         /// </summary>
         public AbstractPrimitive(IMessage message, string description)

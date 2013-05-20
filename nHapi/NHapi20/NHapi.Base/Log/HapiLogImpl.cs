@@ -10,7 +10,7 @@ namespace NHapi.Base.Log
     /// <summary> Provides a base implementation of the <code>HapiLog</code> interface.
     /// 
     /// It delegates all method calls declared by <code>Log</code> to the delegate specified in
-    /// the contructor.
+    /// the constructor.
     /// 
     /// </summary>
     /// <author>  <a href="mailto:alexei.guevara@uhn.on.ca">Alexei Guevara</a>

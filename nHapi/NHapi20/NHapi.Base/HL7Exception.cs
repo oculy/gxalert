@@ -35,10 +35,10 @@ namespace NHapi.Base
     [Serializable]
     public class HL7Exception : System.Exception
     {
-        /// <summary> Returns the name of the segment where the error occured, if this has been set
+        /// <summary> Returns the name of the segment where the error occurred, if this has been set
         /// (null otherwise).
         /// </summary>
-        /// <summary> Sets the name of the segment where the error occured. </summary>
+        /// <summary> Sets the name of the segment where the error occurred. </summary>
         virtual public System.String SegmentName
         {
             get
@@ -52,12 +52,12 @@ namespace NHapi.Base
             }
 
         }
-        /// <summary> Returns the sequence number of the segment where the error occured (if there 
+        /// <summary> Returns the sequence number of the segment where the error occurred (if there 
         /// are multiple segments with the same name) if this has been set, -1 otherwise - 
         /// numbering starts at 1.
         /// </summary>
-        /// <summary> Sets the sequence number of the segment where the error occured if there 
-        /// are multiplt segments with the same name (ie the sequenceNum'th segment 
+        /// <summary> Sets the sequence number of the segment where the error occurred if there 
+        /// are multiple segments with the same name (ie the sequenceNum'th segment 
         /// with the name specified in <code>setSegmentName</code>).  Numbering 
         /// starts at 1.
         /// </summary>
@@ -74,10 +74,10 @@ namespace NHapi.Base
             }
 
         }
-        /// <summary> Returns the field number within the segment where the error occured if it has been 
+        /// <summary> Returns the field number within the segment where the error occurred if it has been 
         /// set, -1 otherwise; numbering starts at 1.
         /// </summary>
-        /// <summary> Sets the field number (within a segment) where the error occured; numbering 
+        /// <summary> Sets the field number (within a segment) where the error occurred; numbering 
         /// starts at 1. 
         /// </summary>
         virtual public int FieldPosition
@@ -187,7 +187,7 @@ namespace NHapi.Base
         /// </summary>
         public const int APPLICATION_RECORD_LOCKED = 206;
         /// <summary>
-        /// Appplication error
+        /// Application error
         /// </summary>
         public const int APPLICATION_INTERNAL_ERROR = 207;
 
@@ -203,7 +203,7 @@ namespace NHapi.Base
         /// these codes as integer constants that can be used here (e.g. 
         /// HL7Exception.UNSUPPORTED_MESSAGE_TYPE)
         /// </param>
-        /// <param name="cause">The excption that caused this exception tobe thrown.
+        /// <param name="cause">The exception that caused this exception to be thrown.
         /// </param>
         /// </summary>
         public HL7Exception(System.String message, int errorCondition, System.Exception cause)

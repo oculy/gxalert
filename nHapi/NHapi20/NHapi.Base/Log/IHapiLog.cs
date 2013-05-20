@@ -11,7 +11,7 @@ namespace NHapi.Base.Log
     /// interface with ancillary method to easy up the log messages generation
     /// by adding MessageFormat like functionality.
     /// 
-    /// Instantiate using {@link HapiLogFactory#getLog( Class clazz)}
+    /// Instantiate using {@link HapiLogFactory#getLog( Class class)}
     /// or {@link HapiLogFactory#getLog( String name)}
     /// 
     /// <pre>
@@ -24,8 +24,8 @@ namespace NHapi.Base.Log
     /// class A {
     /// private static final HapiLog log = HapiLogFactory.getHapiLog( A.class );
     /// 
-    /// public boolean methodA( Object param1 ) {
-    /// boolean retVal = true;
+    /// public Boolean methodA( Object param1 ) {
+    /// Boolean retVal = true;
     /// 
     /// //log debug messages (to be printed only when the debug mode is specified
     /// //in the configuration file)
