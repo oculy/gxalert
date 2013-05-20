@@ -13,7 +13,7 @@
     using NHapi.Model.V25.Message;
 
     /// <summary>
-    /// Center piece of the GxAlert solution: The Server/listener
+    /// Center piece of the GXAlert solution: The Server/listener
     /// </summary>
     public class Server
     {
@@ -255,21 +255,6 @@
                                 // add to list of received messages for later HL7 ACK:
                                 dataForAck.Add(this.GetDataForHL7Acknowledgement(hl7));
                             }
-                            /* Not sure if we even have to handle this... should be enough to simply not send ACK
-                            else if (hl7Message.Contains("QCN"))
-                            {
-                                // did we receive a request for test orders?
-                                PipeParser parser = new PipeParser();
-                                IMessage im = parser.Parse(hl7Message);
-                                QCN_J01 qcn = im as QCN_J01;
-
-                                if (qcn != null)
-                                {
-                                    // send NAK for this frame
-                                    networkStream.WriteByte(Constants.NAK);
-                                    Logger.Log("Sent NAK of QCN message", LogLevel.Warning);
-                                }
-                            }*/
 
                             DB.StoreRawMessage(hl7Message, testId);
 
@@ -300,7 +285,7 @@
         }
 
         /// <summary>
-        /// Take the HL7 message string and turn it into an HL7 object using NHapi
+        /// Take the HL7 message string and turn it into an HL7 object using NHAPI
         /// </summary>
         /// <param name="hl7Message">Raw HL7 string</param>
         /// <param name="networkStream">Reference to the network stream so we can write to it.</param>
