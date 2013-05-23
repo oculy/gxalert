@@ -256,6 +256,22 @@
                                 dataForAck.Add(this.GetDataForHL7Acknowledgement(hl7));
                             }
 
+                            /* Not sure if we even have to handle this... should be enough to simply not send ACK
+                            else if (hl7Message.Contains("QCN"))
+                            {
+                                // did we receive a request for test orders?
+                                PipeParser parser = new PipeParser();
+                                IMessage im = parser.Parse(hl7Message);
+                                QCN_J01 qcn = im as QCN_J01;
+
+                                if (qcn != null)
+                                {
+                                    // send NAK for this frame
+                                    networkStream.WriteByte(Constants.NAK);
+                                    Logger.Log("Sent NAK of QCN message", LogLevel.Warning);
+                                }
+                            }*/
+
                             DB.StoreRawMessage(hl7Message, testId);
 
                             // empty message-var for the next message to be sent
@@ -313,7 +329,9 @@
             {
                 // Device may send SPM which isn't officially part of ORU_R30, so we have to add it by hand
                 hl7.addNonstandardSegment("SPM");
-                parser.Parse((NHapi.Model.V25.Segment.SPM)hl7.GetStructure("SPM"), hl7Message.Substring(hl7Message.IndexOf("SPM"), 40), new EncodingCharacters('|', hl7.MSH.EncodingCharacters.Value));
+                int spmStart = hl7Message.IndexOf("SPM");
+                int spmEnd = hl7Message.IndexOf(this.encoder.GetString(new byte[] { Constants.CR }), hl7Message.IndexOf("SPM"));
+                parser.Parse((NHapi.Model.V25.Segment.SPM)hl7.GetStructure("SPM"), hl7Message.Substring(spmStart, spmEnd - spmStart), new EncodingCharacters('|', hl7.MSH.EncodingCharacters.Value));
             }
             catch (Exception e)
             {
