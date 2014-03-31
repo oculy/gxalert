@@ -26,6 +26,7 @@ namespace GxAlert
         public int CountryId { get; set; }
         public string Name { get; set; }
         public string Abbreviation { get; set; }
+        public string NtpCode { get; set; }
     
         public virtual country country { get; set; }
         public virtual ICollection<lga> lgas { get; set; }

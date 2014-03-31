@@ -36,6 +36,7 @@ namespace GxAlert
         public string UpdatedBy { get; set; }
         public string PhoneBody { get; set; }
         public string NotificationName { get; set; }
+        public bool IncludeUnapprovedDeployments { get; set; }
     
         public virtual ICollection<notificationcountry> notificationcountries { get; set; }
         public virtual ICollection<notificationdeployment> notificationdeployments { get; set; }

@@ -5,6 +5,8 @@
     /// </summary>
     public class Program
     {
+        public static string MshSessionId = null;
+
         /// <summary>
         /// Kick off our server (=listener)
         /// </summary>

@@ -18,6 +18,7 @@ namespace GxAlert
         {
             this.rawmessages = new HashSet<rawmessage>();
             this.testresults = new HashSet<testresult>();
+            this.apilogs = new HashSet<apilog>();
         }
     
         public int TestId { get; set; }
@@ -31,7 +32,7 @@ namespace GxAlert
         public System.DateTime TestEndedOn { get; set; }
         public string AssayHostTestCode { get; set; }
         public string CartridgeSerial { get; set; }
-        public System.DateTime CartridgeExpirationDate { get; set; }
+        public Nullable<System.DateTime> CartridgeExpirationDate { get; set; }
         public string ReagentLotId { get; set; }
         public string SystemName { get; set; }
         public string ModuleSerial { get; set; }
@@ -45,9 +46,21 @@ namespace GxAlert
         public string InsertedBy { get; set; }
         public System.DateTime UpdatedOn { get; set; }
         public string UpdatedBy { get; set; }
+        public Nullable<System.DateTime> SendToMshSuccessOn { get; set; }
+        public string InstrumentSerial { get; set; }
+        public int TestTypeId { get; set; }
+        public string ExternalTestId { get; set; }
+        public string AssayId { get; set; }
+        public string BarcodeCheck { get; set; }
+        public string ExpiryDateCheck { get; set; }
+        public string VolumeCheck { get; set; }
+        public string DeviceCheck { get; set; }
+        public string ReagentCheck { get; set; }
     
         public virtual ICollection<rawmessage> rawmessages { get; set; }
         public virtual ICollection<testresult> testresults { get; set; }
         public virtual deployment deployment { get; set; }
+        public virtual ICollection<apilog> apilogs { get; set; }
+        public virtual testtype testtype { get; set; }
     }
 }

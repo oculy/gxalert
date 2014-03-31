@@ -46,5 +46,9 @@ namespace GxAlert
         public DbSet<notification> notifications { get; set; }
         public DbSet<notificationlog> notificationlogs { get; set; }
         public DbSet<deployment> deployments { get; set; }
+        public DbSet<apilog> apilogs { get; set; }
+        public DbSet<partner> partners { get; set; }
+        public DbSet<devicetype> devicetypes { get; set; }
+        public DbSet<testtype> testtypes { get; set; }
     }
 }

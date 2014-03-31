@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="GxAlertModel.device" Width="1.5" PointX="6.5" PointY="3.5" />
         <EntityTypeShape EntityType="GxAlertModel.devicedeploymenthistory" Width="1.5" PointX="6.5" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="GxAlertModel.lga" Width="1.5" PointX="1.625" PointY="9.25" FillColor="Green" />
-        <EntityTypeShape EntityType="GxAlertModel.person" Width="1.5" PointX="1.125" PointY="12.5" />
+        <EntityTypeShape EntityType="GxAlertModel.person" Width="1.5" PointX="2" PointY="16.75" />
         <EntityTypeShape EntityType="GxAlertModel.rawmessage" Width="1.5" PointX="13" PointY="0.5" FillColor="255, 128, 0" />
         <EntityTypeShape EntityType="GxAlertModel.region" Width="1.5" PointX="1.625" PointY="3.375" FillColor="Green" />
         <EntityTypeShape EntityType="GxAlertModel.resulttestcode" Width="1.5" PointX="13" PointY="6.25" FillColor="255, 128, 0" />
@@ -60,6 +60,15 @@
         <AssociationConnector Association="GxAlertModel.HistoryDeployment" />
         <AssociationConnector Association="GxAlertModel.NotificationDeploymentDeployment" />
         <AssociationConnector Association="GxAlertModel.TestDeployment" />
+        <EntityTypeShape EntityType="GxAlertModel.apilog" Width="1.5" PointX="12.75" PointY="11" />
+        <AssociationConnector Association="GxAlertModel.Test1" />
+        <EntityTypeShape EntityType="GxAlertModel.partner" Width="1.5" PointX="1.625" PointY="12" FillColor="Green" />
+        <AssociationConnector Association="GxAlertModel.DeploymentPartner" />
+        <EntityTypeShape EntityType="GxAlertModel.devicetype" Width="1.5" PointX="5.173394704783985" PointY="14.815811983689578" />
+        <EntityTypeShape EntityType="GxAlertModel.testtype" Width="1.5" PointX="5.3550689245364946" PointY="8.6988778005814549" />
+        <AssociationConnector Association="GxAlertModel.DeviceDeviceType" />
+        <AssociationConnector Association="GxAlertModel.TestTypeDeviceType" />
+        <AssociationConnector Association="GxAlertModel.TestTestType" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

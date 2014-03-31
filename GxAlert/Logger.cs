@@ -49,7 +49,7 @@
             // send email on error:
             if (logLevel == LogLevel.Error)
             {
-                Notifications.SendErrorEmail(logMessage);
+                // Notifications.SendErrorEmail(logMessage);
             }
         }
 
@@ -59,10 +59,19 @@
         /// <param name="logEntry">Message to log</param>
         private static void WriteToFile(string logEntry)
         {
-            using (StreamWriter sw = File.AppendText("Log.txt"))
+            // just to be extra-cautious (in case someone's looking 
+            // at the file and that causes a write access error: try/catch
+            try
             {
-                sw.WriteLine(logEntry);
-                sw.WriteLine();
+                using (StreamWriter sw = File.AppendText("Log.txt"))
+                {
+                    sw.WriteLine(logEntry);
+                    sw.WriteLine();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("File write error: " + e.Message);
             }
         }
     }

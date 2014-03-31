@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://etbmanager.org/authenticator" name="authenticatorService" targetNamespace="http://etbmanager.org/authenticator" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema targetNamespace="http://etbmanager.org/authenticator" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="errormsg" type="xs:string" />
+          <xs:element name="errorno" type="xs:int" />
+          <xs:element minOccurs="0" name="result" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="authenticatorService_getUserWorkspaces">
+    <part name="username" type="xsd:string" />
+    <part name="password" type="xsd:string" />
+  </message>
+  <message name="authenticatorService_login">
+    <part name="username" type="xsd:string" />
+    <part name="password" type="xsd:string" />
+    <part name="workspaceId" type="xsd:int" />
+  </message>
+  <message name="authenticatorService_getUserWorkspacesResponse">
+    <part name="return" type="tns:response" />
+  </message>
+  <message name="authenticatorService_loginResponse">
+    <part name="return" type="tns:response" />
+  </message>
+  <portType name="authenticatorService">
+    <operation name="getUserWorkspaces" parameterOrder="username password">
+      <input message="tns:authenticatorService_getUserWorkspaces" />
+      <output message="tns:authenticatorService_getUserWorkspacesResponse" />
+    </operation>
+    <operation name="login" parameterOrder="username password workspaceId">
+      <input message="tns:authenticatorService_login" />
+      <output message="tns:authenticatorService_loginResponse" />
+    </operation>
+  </portType>
+  <binding name="authenticatorServiceBinding" type="tns:authenticatorService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="getUserWorkspaces">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://etbmanager.org/authenticator" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://etbmanager.org/authenticator" />
+      </output>
+    </operation>
+    <operation name="login">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://etbmanager.org/authenticator" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://etbmanager.org/authenticator" />
+      </output>
+    </operation>
+  </binding>
+  <service name="authenticatorService">
+    <port name="authenticatorServicePort" binding="tns:authenticatorServiceBinding">
+      <soap:address location="http://127.0.0.1:8080/etbmanager/services/authentication" />
+    </port>
+  </service>
+</definitions>
