@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://etbmanager.org/xpertservice" name="xpertService" targetNamespace="http://etbmanager.org/xpertservice" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema targetNamespace="http://etbmanager.org/xpertservice" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="xpertData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="caseId" type="xs:int" />
+          <xs:element minOccurs="0" name="comments" type="xs:string" />
+          <xs:element minOccurs="0" name="laboratoryId" type="xs:int" />
+          <xs:element minOccurs="0" name="releaseDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="result" type="tns:xpertResult" />
+          <xs:element minOccurs="0" name="rifResult" type="tns:xpertRifResult" />
+          <xs:element minOccurs="0" name="sampleDateCollected" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="sampleId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="errormsg" type="xs:string" />
+          <xs:element name="errorno" type="xs:int" />
+          <xs:element minOccurs="0" name="result" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="xpertResult">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="INVALID" />
+          <xs:enumeration value="ERROR" />
+          <xs:enumeration value="NO_RESULT" />
+          <xs:enumeration value="ONGOING" />
+          <xs:enumeration value="TB_NOT_DETECTED" />
+          <xs:enumeration value="TB_DETECTED" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="xpertRifResult">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="RIF_DETECTED" />
+          <xs:enumeration value="RIF_NOT_DETECTED" />
+          <xs:enumeration value="RIF_INDETERMINATE" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </types>
+  <message name="xpertService_postResultResponse">
+    <part name="return" type="tns:response" />
+  </message>
+  <message name="xpertService_postResult">
+    <part name="sessionId" type="xsd:string" />
+    <part name="examResult" type="tns:xpertData" />
+  </message>
+  <portType name="xpertService">
+    <operation name="postResult" parameterOrder="sessionId examResult">
+      <input message="tns:xpertService_postResult" />
+      <output message="tns:xpertService_postResultResponse" />
+    </operation>
+  </portType>
+  <binding name="xpertServiceBinding" type="tns:xpertService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="postResult">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" namespace="http://etbmanager.org/xpertservice" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://etbmanager.org/xpertservice" />
+      </output>
+    </operation>
+  </binding>
+  <service name="xpertService">
+    <port name="xpertServicePort" binding="tns:xpertServiceBinding">
+      <soap:address location="http://127.0.0.1:8080/etbmanager/services/xpertservice" />
+    </port>
+  </service>
+</definitions>

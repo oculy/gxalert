@@ -13,7 +13,7 @@
     using NHapi.Model.V25.Message;
 
     /// <summary>
-    /// Center piece of the GXAlert solution: The Server/listener
+    /// Center piece of the BigPicture solution: The Server/listener
     /// </summary>
     public class Server
     {
@@ -384,7 +384,7 @@
             NHapi.Model.V25.Message.ACK ack = new NHapi.Model.V25.Message.ACK();
 
             // MSH-segment:
-            ack.MSH.SendingApplication.NamespaceID.Value = "GxAlert";
+            ack.MSH.SendingApplication.NamespaceID.Value = "BigPicture";
             ack.MSH.ReceivingApplication.NamespaceID.Value = messageData.SendingApplicationNamespaceID;
             ack.MSH.ReceivingApplication.UniversalID.Value = messageData.SendingApplicationUniversalID;
             ack.MSH.ReceivingApplication.UniversalIDType.Value = messageData.SendingApplicationUniversalIDType;

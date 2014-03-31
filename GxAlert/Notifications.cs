@@ -18,6 +18,7 @@
         private SendEmailDelegate sendEmailDelegate;
         private SendSmsDelegate sendSmsDelegate;
         private InitiateCallDelegate initiateCallDelegate;
+        private SendToMshDelegate sendToMshDelegate;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Notifications"/> class.
@@ -27,6 +28,7 @@
             this.sendEmailDelegate = new SendEmailDelegate(this.SendEmail);
             this.sendSmsDelegate = new SendSmsDelegate(this.SendSms);
             this.initiateCallDelegate = new InitiateCallDelegate(this.InitiateCall);
+            this.sendToMshDelegate = new SendToMshDelegate(this.SendToMsh);
         }
 
         private delegate void InitiateCallDelegate(PersonNotification n);
@@ -34,6 +36,8 @@
         private delegate void SendSmsDelegate(PersonNotification n);
 
         private delegate void SendEmailDelegate(PersonNotification n);
+
+        private delegate void SendToMshDelegate(int? testId);
 
         /// <summary>
         /// This function takes a test ID and figures out who to notify from there.
@@ -47,26 +51,55 @@
                 return;
             }
 
+            this.sendToMshDelegate(testId);
+
             // get all notifications that match the test:
             var notifications = DB.GetNotificationsByTest(testId);
 
             // fire off notifications:
             foreach (var n in notifications)
             {
-                if (n.Sms && !string.IsNullOrWhiteSpace(n.SmsBody))
+                // send sms only if:
+                // - notification is a text notification
+                // - person has a cell phone number
+                // - there is content in the message body
+                // - the test isn't older than 30 days
+                if (n.Sms && !string.IsNullOrWhiteSpace(n.PersonCell) && !string.IsNullOrWhiteSpace(n.SmsBody) && n.TestEndedOn > DateTime.Now.AddDays(-30))
                 {
                     this.sendSmsDelegate.BeginInvoke(n, null, null);
                 }
 
                 /* no phone for now
-                if (n.Phone && !string.IsNullOrWhiteSpace(n.PhoneBody))
+                if (n.Phone && !string.IsNullOrWhiteSpace(n.PersonPhone) && !string.IsNullOrWhiteSpace(n.PhoneBody))
                 {
                     this.initiateCallDelegate.BeginInvoke(n, null, null);
                 }*/
-                if (n.Email && !string.IsNullOrWhiteSpace(n.EmailSubject))
+
+                if (n.Email && !string.IsNullOrWhiteSpace(n.PersonEmail) && !string.IsNullOrWhiteSpace(n.EmailSubject))
                 {
                     this.sendEmailDelegate.BeginInvoke(n, null, null);
                 }
+            }
+
+            return;
+        }
+
+        /// <summary>
+        /// Notify MSH via API
+        /// </summary>
+        /// <param name="testId">The ID of the test to send to MSH</param>
+        private void SendToMsh(int? testId)
+        {
+            // don't send to msh any more
+            return;
+
+            try
+            {
+                new MshApi().Send(testId);
+            }
+            catch (Exception e)
+            {
+                Logger.Log("Calling eTB Manager API error:" + e.Message, LogLevel.Error);
             }
 
             return;
@@ -83,11 +116,11 @@
                 // send email
                 System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage();
 
-                message.To.Add(new MailAddress(n.PersonEmail, n.FirstName + " " + n.LastName));
-                message.From = new MailAddress("noreply@gxalert.com");
+                message.To.Add(new MailAddress(n.PersonEmail, n.Name));
+                message.From = new MailAddress("noreply@email.gxalert.com", "GxAlert");
 
-                message.Subject = this.FillPlaceholders(n.EmailSubject, n);
-                message.Body = this.FillPlaceholders(n.EmailBody, n);
+                message.Subject = this.FillPlaceholders(n.EmailSubject, n, false);
+                message.Body = this.FillPlaceholders(n.EmailBody, n, false);
 
                 SmtpClient smtp = new SmtpClient(ConfigurationManager.AppSettings["smtpServer"], 587);
                 smtp.Credentials = new NetworkCredential(ConfigurationManager.AppSettings["smtpUser"], ConfigurationManager.AppSettings["smtpPassword"]);
@@ -113,7 +146,7 @@
             try
             {
                 // send sms
-                string sms = this.FillPlaceholders(n.SmsBody, n);
+                string sms = this.FillPlaceholders(n.SmsBody, n, true);
                 var twilio = new TwilioRestClient(ConfigurationManager.AppSettings["twilioAccountSid"], ConfigurationManager.AppSettings["twilioAuthToken"]);
                 var msg = twilio.SendSmsMessage(ConfigurationManager.AppSettings["twilioFromNumber"], n.PersonCell, sms);
 
@@ -136,8 +169,8 @@
         {
             try
             {
-                // send sms
-                string phone = this.FillPlaceholders(n.PhoneBody, n);
+                // call phone
+                string phone = this.FillPlaceholders(n.PhoneBody, n, false);
                 var twilio = new TwilioRestClient(ConfigurationManager.AppSettings["twilioAccountSid"], ConfigurationManager.AppSettings["twilioAuthToken"]);
                 var call = twilio.InitiateOutboundCall(ConfigurationManager.AppSettings["twilioFromNumber"], n.PersonPhone, "http://twimlets.com/echo?Twiml=%3CResponse%3E%3CSay%3ENew+MDR-TB+case+in+Nigeria%21%3C%2FSay%3E%3C%2FResponse%3E");
 
@@ -157,38 +190,59 @@
         /// </summary>
         /// <param name="message">Message with placeholders to replace</param>
         /// <param name="n">Person Notification object that we use to fill placeholders</param>
+        /// <param name="isSms">Indicate whether this is an SMS (results in slightly different formatting)</param>
         /// <returns>Message with all placeholders replaced</returns>
-        private string FillPlaceholders(string message, PersonNotification n)
+        private string FillPlaceholders(string message, PersonNotification n, bool isSms)
         {
             CultureInfo ci = new CultureInfo(n.PersonCulture);
 
-            return message.Replace("[DeploymentDescription]", n.DeploymentDescription)
+            message = message.Replace("[DeploymentDescription]", n.DeploymentDescription ?? n.DeploymentHostId)
                             .Replace("[DeploymentCountry]", n.DeploymentCountry)
-                            .Replace("[Results]", n.ResultText.Replace("|", ", ").Trim(new char[] { ' ', ',' }))
                             .Replace("[MessageSentOn]", n.MessageSentOn.ToString("d", ci) + " " + n.MessageSentOn.ToString("t", ci))
+                            .Replace("[TestEndedOn]", n.TestEndedOn.ToString("d", ci) + " " + n.TestEndedOn.ToString("t", ci))
                             .Replace("[DeploymentHostId]", n.DeploymentHostId);
+
+            if (!isSms)
+            {
+                message = message.Replace("[Results]", n.ResultText.Replace("|", ", ").Trim(new char[] { ' ', ',' }));
+            }
+            else
+            {
+                message = message.Replace("[Results]", n.ResultText.Replace("|", System.Environment.NewLine).Trim(new char[] { ' ', '\\', 'n' }));
+            }
+
+            return message;
         }
 
         /// <summary>
         /// Sends a notification about a new deployment to the people defined in the configuration settings
         /// </summary>
         /// <param name="hostId">The hostId of the device</param>
-        /// <param name="instrumentSerial">The serial number of the device</param>
+        /// <param name="deviceSerial">The serial number of the device</param>
         /// <param name="senderIp">IP that the device is sending from</param>
-        public void SendNewDeploymentNotification(string hostId, string instrumentSerial, string senderIp)
+        public void SendNewDeploymentNotification(string hostId, string deviceSerial, string senderIp)
         {
             try
             {
                 // send email
                 System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage();
 
-                message.To.Add(new MailAddress(ConfigurationManager.AppSettings["newDeploymentTo"]));
-                message.From = new MailAddress("noreply@gxalert.com");
+                string toAddresses = ConfigurationManager.AppSettings["newDeploymentTo"];
 
-                message.Subject = "A new deployment submitted data";
+                foreach (var to in toAddresses.Split(','))
+                {
+                    var address = to.Replace(",", string.Empty).Trim();
+
+                    if (!string.IsNullOrWhiteSpace(address))
+                        message.To.Add(new MailAddress(address));
+                }
+
+                message.From = new MailAddress("noreply@email.gxalert.com", "GxAlert");
+
+                message.Subject = "A new GeneXpert deployment submitted data";
                 message.Body = "Details of the deployment: \n\n";
                 message.Body += "\nHostID: " + hostId;
-                message.Body += "\nSerial: " + instrumentSerial;
+                message.Body += "\nSerial: " + deviceSerial;
                 message.Body += "\nIP Address: " + senderIp;
                 message.Body += "\n\n\n";
 
@@ -210,10 +264,14 @@
         /// <param name="logMessage">The error message to send in the body of the email</param>
         public static void SendErrorEmail(string logMessage)
         {
+            // don't send email on socket error:
+            if (logMessage.Contains("A socket error has occurred"))
+                return;
+
             // send email
             System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage();
             message.To.Add(ConfigurationManager.AppSettings["errorTo"]);
-            message.From = new MailAddress("noreply@gxalert.com");
+            message.From = new MailAddress("noreply@email.gxalert.com", "GxAlert");
             message.Subject = "An error has occurred in " + ConfigurationManager.AppSettings["appName"];
             message.Body = logMessage;
 

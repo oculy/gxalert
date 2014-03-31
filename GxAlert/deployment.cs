@@ -42,6 +42,8 @@ namespace GxAlert
         public bool Approved { get; set; }
         public Nullable<System.DateTime> ApprovedOn { get; set; }
         public string ApprovedBy { get; set; }
+        public Nullable<int> MshLaboratoryId { get; set; }
+        public Nullable<int> PartnerId { get; set; }
     
         public virtual country country { get; set; }
         public virtual lga lga { get; set; }
@@ -51,5 +53,6 @@ namespace GxAlert
         public virtual ICollection<devicedeploymenthistory> devicedeploymenthistories { get; set; }
         public virtual ICollection<notificationdeployment> notificationdeployments { get; set; }
         public virtual ICollection<test> tests { get; set; }
+        public virtual partner partner { get; set; }
     }
 }

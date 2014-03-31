@@ -6,33 +6,41 @@
     <edmx:StorageModels>
     <Schema Namespace="GxAlertModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="GxAlertModelStoreContainer">
-          <EntitySet Name="country" EntityType="GxAlertModel.Store.country" store:Type="Tables" Schema="GxAlertdev" />
-          <EntitySet Name="deployment" EntityType="GxAlertModel.Store.deployment" store:Type="Tables" Schema="GxAlertdev" />
-          <EntitySet Name="device" EntityType="GxAlertModel.Store.device" store:Type="Tables" Schema="GxAlertdev" />
-          <EntitySet Name="devicedeploymenthistory" EntityType="GxAlertModel.Store.devicedeploymenthistory" store:Type="Tables" Schema="GxAlertdev" />
-          <EntitySet Name="lga" EntityType="GxAlertModel.Store.lga" store:Type="Tables" Schema="GxAlertdev" />
-          <EntitySet Name="notification" EntityType="GxAlertModel.Store.notification" store:Type="Tables" Schema="GxAlertdev" />
-          <EntitySet Name="notificationcountry" EntityType="GxAlertModel.Store.notificationcountry" store:Type="Tables" Schema="GxAlertdev" />
-          <EntitySet Name="notificationdeployment" EntityType="GxAlertModel.Store.notificationdeployment" store:Type="Tables" Schema="GxAlertdev" />
-          <EntitySet Name="notificationlga" EntityType="GxAlertModel.Store.notificationlga" store:Type="Tables" Schema="GxAlertdev" />
-          <EntitySet Name="notificationlog" EntityType="GxAlertModel.Store.notificationlog" store:Type="Tables" Schema="GxAlertdev" />
-          <EntitySet Name="notificationperson" EntityType="GxAlertModel.Store.notificationperson" store:Type="Tables" Schema="GxAlertdev" />
-          <EntitySet Name="notificationregion" EntityType="GxAlertModel.Store.notificationregion" store:Type="Tables" Schema="GxAlertdev" />
-          <EntitySet Name="notificationresult" EntityType="GxAlertModel.Store.notificationresult" store:Type="Tables" Schema="GxAlertdev" />
-          <EntitySet Name="notificationstate" EntityType="GxAlertModel.Store.notificationstate" store:Type="Tables" Schema="GxAlertdev" />
-          <EntitySet Name="person" EntityType="GxAlertModel.Store.person" store:Type="Tables" Schema="GxAlertdev" />
-          <EntitySet Name="rawmessage" EntityType="GxAlertModel.Store.rawmessage" store:Type="Tables" Schema="GxAlertdev" />
-          <EntitySet Name="region" EntityType="GxAlertModel.Store.region" store:Type="Tables" Schema="GxAlertdev" />
-          <EntitySet Name="resulttestcode" EntityType="GxAlertModel.Store.resulttestcode" store:Type="Tables" Schema="GxAlertdev" />
-          <EntitySet Name="state" EntityType="GxAlertModel.Store.state" store:Type="Tables" Schema="GxAlertdev" />
-          <EntitySet Name="test" EntityType="GxAlertModel.Store.test" store:Type="Tables" Schema="GxAlertdev" />
-          <EntitySet Name="testresult" EntityType="GxAlertModel.Store.testresult" store:Type="Tables" Schema="GxAlertdev" />
+          <EntitySet Name="apilog" EntityType="GxAlertModel.Store.apilog" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="country" EntityType="GxAlertModel.Store.country" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="deployment" EntityType="GxAlertModel.Store.deployment" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="device" EntityType="GxAlertModel.Store.device" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="devicedeploymenthistory" EntityType="GxAlertModel.Store.devicedeploymenthistory" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="devicetype" EntityType="GxAlertModel.Store.devicetype" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="lga" EntityType="GxAlertModel.Store.lga" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="notification" EntityType="GxAlertModel.Store.notification" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="notificationcountry" EntityType="GxAlertModel.Store.notificationcountry" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="notificationdeployment" EntityType="GxAlertModel.Store.notificationdeployment" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="notificationlga" EntityType="GxAlertModel.Store.notificationlga" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="notificationlog" EntityType="GxAlertModel.Store.notificationlog" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="notificationperson" EntityType="GxAlertModel.Store.notificationperson" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="notificationregion" EntityType="GxAlertModel.Store.notificationregion" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="notificationresult" EntityType="GxAlertModel.Store.notificationresult" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="notificationstate" EntityType="GxAlertModel.Store.notificationstate" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="partner" EntityType="GxAlertModel.Store.partner" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="person" EntityType="GxAlertModel.Store.person" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="rawmessage" EntityType="GxAlertModel.Store.rawmessage" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="region" EntityType="GxAlertModel.Store.region" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="resulttestcode" EntityType="GxAlertModel.Store.resulttestcode" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="state" EntityType="GxAlertModel.Store.state" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="test" EntityType="GxAlertModel.Store.test" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="testresult" EntityType="GxAlertModel.Store.testresult" store:Type="Tables" Schema="gxalert" />
+          <EntitySet Name="testtype" EntityType="GxAlertModel.Store.testtype" store:Type="Tables" Schema="gxalert" />
           <AssociationSet Name="DeploymentCountry" Association="GxAlertModel.Store.DeploymentCountry">
             <End Role="country" EntitySet="country" />
             <End Role="deployment" EntitySet="deployment" />
           </AssociationSet>
           <AssociationSet Name="DeploymentLga" Association="GxAlertModel.Store.DeploymentLga">
             <End Role="lga" EntitySet="lga" />
+            <End Role="deployment" EntitySet="deployment" />
+          </AssociationSet>
+          <AssociationSet Name="DeploymentPartner" Association="GxAlertModel.Store.DeploymentPartner">
+            <End Role="partner" EntitySet="partner" />
             <End Role="deployment" EntitySet="deployment" />
           </AssociationSet>
           <AssociationSet Name="DeploymentRegion" Association="GxAlertModel.Store.DeploymentRegion">
@@ -45,6 +53,10 @@
           </AssociationSet>
           <AssociationSet Name="DeviceDeployment" Association="GxAlertModel.Store.DeviceDeployment">
             <End Role="deployment" EntitySet="deployment" />
+            <End Role="device" EntitySet="device" />
+          </AssociationSet>
+          <AssociationSet Name="DeviceDeviceType" Association="GxAlertModel.Store.DeviceDeviceType">
+            <End Role="devicetype" EntitySet="devicetype" />
             <End Role="device" EntitySet="device" />
           </AssociationSet>
           <AssociationSet Name="HistoryDeployment" Association="GxAlertModel.Store.HistoryDeployment">
@@ -155,6 +167,10 @@
             <End Role="state" EntitySet="state" />
             <End Role="lga" EntitySet="lga" />
           </AssociationSet>
+          <AssociationSet Name="Test1" Association="GxAlertModel.Store.Test1">
+            <End Role="test" EntitySet="test" />
+            <End Role="apilog" EntitySet="apilog" />
+          </AssociationSet>
           <AssociationSet Name="TestDeployment" Association="GxAlertModel.Store.TestDeployment">
             <End Role="deployment" EntitySet="deployment" />
             <End Role="test" EntitySet="test" />
@@ -163,7 +179,36 @@
             <End Role="test" EntitySet="test" />
             <End Role="testresult" EntitySet="testresult" />
           </AssociationSet>
+          <AssociationSet Name="TestTestType" Association="GxAlertModel.Store.TestTestType">
+            <End Role="testtype" EntitySet="testtype" />
+            <End Role="test" EntitySet="test" />
+          </AssociationSet>
+          <AssociationSet Name="TestTypeDeviceType" Association="GxAlertModel.Store.TestTypeDeviceType">
+            <End Role="devicetype" EntitySet="devicetype" />
+            <End Role="testtype" EntitySet="testtype" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="apilog">
+          <Key>
+            <PropertyRef Name="ApiLogId" />
+          </Key>
+          <Property Name="ApiLogId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IsError" Type="bit" />
+          <Property Name="TestId" Type="int" Nullable="false" />
+          <Property Name="ErrorCode" Type="varchar" MaxLength="10" />
+          <Property Name="ErrorMessage" Type="varchar" MaxLength="2000" />
+          <Property Name="CaseId" Type="varchar" MaxLength="45" />
+          <Property Name="SampleId" Type="varchar" MaxLength="45" />
+          <Property Name="SampleDateCollected" Type="datetime" />
+          <Property Name="ReleaseDate" Type="datetime" />
+          <Property Name="LaboratoryId" Type="varchar" MaxLength="45" />
+          <Property Name="TbResult" Type="varchar" MaxLength="100" />
+          <Property Name="RifResult" Type="varchar" MaxLength="100" />
+          <Property Name="Comments" Type="varchar" MaxLength="2000" />
+          <Property Name="InitiatedOn" Type="datetime" Nullable="false" />
+          <Property Name="InitiatedBy" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="InitiatedManually" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="country">
           <Key>
             <PropertyRef Name="CountryId" />
@@ -190,6 +235,8 @@
           <Property Name="Zip" Type="varchar" MaxLength="45" />
           <Property Name="Latitude" Type="float" />
           <Property Name="Longitude" Type="float" />
+          <Property Name="MshLaboratoryId" Type="int" />
+          <Property Name="PartnerId" Type="int" />
           <Property Name="InsertedOn" Type="datetime" Nullable="false" />
           <Property Name="Insertedby" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
@@ -203,6 +250,7 @@
             <PropertyRef Name="DeviceId" />
           </Key>
           <Property Name="DeviceId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DeviceTypeId" Type="int" Nullable="false" />
           <Property Name="Serial" Type="varchar" Nullable="false" MaxLength="45" />
           <Property Name="CurrentDeploymentId" Type="int" Nullable="false" />
           <Property Name="InsertedOn" Type="datetime" Nullable="false" />
@@ -220,6 +268,13 @@
           <Property Name="InsertedOn" Type="datetime" Nullable="false" />
           <Property Name="InsertedBy" Type="varchar" Nullable="false" MaxLength="45" />
         </EntityType>
+        <EntityType Name="devicetype">
+          <Key>
+            <PropertyRef Name="DeviceTypeId" />
+          </Key>
+          <Property Name="DeviceTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
         <EntityType Name="lga">
           <Key>
             <PropertyRef Name="LgaId" />
@@ -234,6 +289,7 @@
           </Key>
           <Property Name="NotificationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NotificationName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="IncludeUnapprovedDeployments" Type="bit" Nullable="false" />
           <Property Name="EmailSubject" Type="varchar" MaxLength="255" />
           <Property Name="EmailBody" Type="varchar" MaxLength="1200" />
           <Property Name="SmsBody" Type="varchar" MaxLength="1200" />
@@ -320,20 +376,30 @@
           <Property Name="NotificationId" Type="int" Nullable="false" />
           <Property Name="StateId" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="partner">
+          <Key>
+            <PropertyRef Name="PartnerId" />
+          </Key>
+          <Property Name="PartnerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
         <EntityType Name="person">
           <Key>
             <PropertyRef Name="PersonId" />
           </Key>
           <Property Name="PersonId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="255" />
-          <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="Title" Type="varchar" MaxLength="255" />
           <Property Name="Email" Type="varchar" MaxLength="500" />
+          <Property Name="EmailAlt" Type="varchar" MaxLength="500" />
           <Property Name="Phone" Type="varchar" MaxLength="45" />
           <Property Name="Cell" Type="varchar" MaxLength="45" />
           <Property Name="CountryId" Type="int" />
           <Property Name="RegionId" Type="int" />
           <Property Name="StateId" Type="int" />
           <Property Name="LgaId" Type="int" />
+          <Property Name="Notes" Type="varchar" MaxLength="1200" />
         </EntityType>
         <EntityType Name="rawmessage">
           <Key>
@@ -371,6 +437,7 @@
           <Property Name="CountryId" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="Abbreviation" Type="varchar" MaxLength="10" />
+          <Property Name="NtpCode" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="test">
           <Key>
@@ -378,29 +445,39 @@
           </Key>
           <Property Name="TestId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="DeploymentId" Type="int" Nullable="false" />
+          <Property Name="TestTypeId" Type="int" Nullable="false" />
           <Property Name="MessageSentOn" Type="datetime" Nullable="false" />
-          <Property Name="SenderVersion" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="SenderVersion" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="SenderUser" Type="varchar" Nullable="false" MaxLength="255" />
-          <Property Name="SenderIp" Type="varchar" Nullable="false" MaxLength="45" />
-          <Property Name="PatientId" Type="varchar" MaxLength="45" />
+          <Property Name="SenderIp" Type="varchar" MaxLength="45" />
+          <Property Name="PatientId" Type="varchar" MaxLength="255" />
           <Property Name="TestStartedOn" Type="datetime" Nullable="false" />
           <Property Name="TestEndedOn" Type="datetime" Nullable="false" />
-          <Property Name="AssayHostTestCode" Type="varchar" Nullable="false" MaxLength="255" />
-          <Property Name="CartridgeSerial" Type="varchar" Nullable="false" MaxLength="45" />
-          <Property Name="CartridgeExpirationDate" Type="datetime" Nullable="false" />
-          <Property Name="ReagentLotId" Type="varchar" Nullable="false" MaxLength="45" />
-          <Property Name="SystemName" Type="varchar" Nullable="false" MaxLength="255" />
-          <Property Name="ModuleSerial" Type="varchar" Nullable="false" MaxLength="45" />
-          <Property Name="ComputerName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="AssayHostTestCode" Type="varchar" MaxLength="255" />
+          <Property Name="CartridgeSerial" Type="varchar" MaxLength="45" />
+          <Property Name="CartridgeExpirationDate" Type="datetime" />
+          <Property Name="ReagentLotId" Type="varchar" MaxLength="45" />
+          <Property Name="SystemName" Type="varchar" MaxLength="255" />
+          <Property Name="InstrumentSerial" Type="varchar" MaxLength="45" />
+          <Property Name="ModuleSerial" Type="varchar" MaxLength="45" />
+          <Property Name="ComputerName" Type="varchar" MaxLength="255" />
           <Property Name="AssayName" Type="varchar" Nullable="false" MaxLength="255" />
-          <Property Name="AssayVersion" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="AssayVersion" Type="varchar" MaxLength="10" />
           <Property Name="ResultText" Type="varchar" Nullable="false" MaxLength="1200" />
           <Property Name="SampleId" Type="varchar" Nullable="false" MaxLength="45" />
           <Property Name="Notes" Type="text" />
+          <Property Name="SendToMshSuccessOn" Type="datetime" />
           <Property Name="InsertedOn" Type="datetime" Nullable="false" />
           <Property Name="InsertedBy" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
           <Property Name="UpdatedBy" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="ExternalTestId" Type="varchar" MaxLength="255" />
+          <Property Name="AssayId" Type="varchar" MaxLength="45" />
+          <Property Name="BarcodeCheck" Type="varchar" MaxLength="45" />
+          <Property Name="ExpiryDateCheck" Type="varchar" MaxLength="45" />
+          <Property Name="VolumeCheck" Type="varchar" MaxLength="45" />
+          <Property Name="DeviceCheck" Type="varchar" MaxLength="45" />
+          <Property Name="ReagentCheck" Type="varchar" MaxLength="45" />
         </EntityType>
         <EntityType Name="testresult">
           <Key>
@@ -414,6 +491,14 @@
           <Property Name="InsertedBy" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
           <Property Name="UpdatedBy" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="testtype">
+          <Key>
+            <PropertyRef Name="TestTypeId" />
+          </Key>
+          <Property Name="TestTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DeviceTypeId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
         </EntityType>
         <Association Name="DeploymentCountry">
           <End Role="country" Type="GxAlertModel.Store.country" Multiplicity="0..1" />
@@ -436,6 +521,18 @@
             </Principal>
             <Dependent Role="deployment">
               <PropertyRef Name="LgaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DeploymentPartner">
+          <End Role="partner" Type="GxAlertModel.Store.partner" Multiplicity="0..1" />
+          <End Role="deployment" Type="GxAlertModel.Store.deployment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="partner">
+              <PropertyRef Name="PartnerId" />
+            </Principal>
+            <Dependent Role="deployment">
+              <PropertyRef Name="PartnerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -472,6 +569,18 @@
             </Principal>
             <Dependent Role="device">
               <PropertyRef Name="CurrentDeploymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DeviceDeviceType">
+          <End Role="devicetype" Type="GxAlertModel.Store.devicetype" Multiplicity="1" />
+          <End Role="device" Type="GxAlertModel.Store.device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="devicetype">
+              <PropertyRef Name="DeviceTypeId" />
+            </Principal>
+            <Dependent Role="device">
+              <PropertyRef Name="DeviceTypeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -839,6 +948,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Test1">
+          <End Role="test" Type="GxAlertModel.Store.test" Multiplicity="1" />
+          <End Role="apilog" Type="GxAlertModel.Store.apilog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test">
+              <PropertyRef Name="TestId" />
+            </Principal>
+            <Dependent Role="apilog">
+              <PropertyRef Name="TestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="TestDeployment">
           <End Role="deployment" Type="GxAlertModel.Store.deployment" Multiplicity="1" />
           <End Role="test" Type="GxAlertModel.Store.test" Multiplicity="*" />
@@ -862,6 +983,30 @@
             </Principal>
             <Dependent Role="testresult">
               <PropertyRef Name="TestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestTestType">
+          <End Role="testtype" Type="GxAlertModel.Store.testtype" Multiplicity="1" />
+          <End Role="test" Type="GxAlertModel.Store.test" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="testtype">
+              <PropertyRef Name="TestTypeId" />
+            </Principal>
+            <Dependent Role="test">
+              <PropertyRef Name="TestTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestTypeDeviceType">
+          <End Role="devicetype" Type="GxAlertModel.Store.devicetype" Multiplicity="1" />
+          <End Role="testtype" Type="GxAlertModel.Store.testtype" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="devicetype">
+              <PropertyRef Name="DeviceTypeId" />
+            </Principal>
+            <Dependent Role="testtype">
+              <PropertyRef Name="DeviceTypeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1027,6 +1172,30 @@
             <End Role="deployment" EntitySet="deployments" />
             <End Role="test" EntitySet="tests" />
           </AssociationSet>
+          <EntitySet Name="apilogs" EntityType="GxAlertModel.apilog" />
+          <AssociationSet Name="Test1" Association="GxAlertModel.Test1">
+            <End Role="test" EntitySet="tests" />
+            <End Role="apilog" EntitySet="apilogs" />
+          </AssociationSet>
+          <EntitySet Name="partners" EntityType="GxAlertModel.partner" />
+          <AssociationSet Name="DeploymentPartner" Association="GxAlertModel.DeploymentPartner">
+            <End Role="partner" EntitySet="partners" />
+            <End Role="deployment" EntitySet="deployments" />
+          </AssociationSet>
+          <EntitySet Name="devicetypes" EntityType="GxAlertModel.devicetype" />
+          <EntitySet Name="testtypes" EntityType="GxAlertModel.testtype" />
+          <AssociationSet Name="DeviceDeviceType" Association="GxAlertModel.DeviceDeviceType">
+            <End Role="devicetype" EntitySet="devicetypes" />
+            <End Role="device" EntitySet="devices" />
+          </AssociationSet>
+          <AssociationSet Name="TestTypeDeviceType" Association="GxAlertModel.TestTypeDeviceType">
+            <End Role="devicetype" EntitySet="devicetypes" />
+            <End Role="testtype" EntitySet="testtypes" />
+          </AssociationSet>
+          <AssociationSet Name="TestTestType" Association="GxAlertModel.TestTestType">
+            <End Role="testtype" EntitySet="testtypes" />
+            <End Role="test" EntitySet="tests" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="country">
           <Key>
@@ -1055,6 +1224,8 @@
           <Property Type="String" Name="UpdatedBy" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="devicedeploymenthistories" Relationship="GxAlertModel.HistoryDevice" FromRole="device" ToRole="devicedeploymenthistory" />
           <NavigationProperty Name="deployment" Relationship="GxAlertModel.DeviceDeployment" FromRole="device" ToRole="deployment" />
+          <Property Type="Int32" Name="DeviceTypeId" Nullable="false" />
+          <NavigationProperty Name="devicetype" Relationship="GxAlertModel.DeviceDeviceType" FromRole="device" ToRole="devicetype" />
         </EntityType>
         <EntityType Name="devicedeploymenthistory">
           <Key>
@@ -1085,8 +1256,6 @@
             <PropertyRef Name="PersonId" />
           </Key>
           <Property Type="Int32" Name="PersonId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="LastName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Email" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Cell" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="CountryId" />
@@ -1100,6 +1269,11 @@
           <NavigationProperty Name="notificationpersons" Relationship="GxAlertModel.NotificationPersonPerson" FromRole="person" ToRole="notificationperson" />
           <Property Type="String" Name="Phone" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="notificationlogs" Relationship="GxAlertModel.NotificationLogPerson" FromRole="person" ToRole="notificationlog" />
+          <Property Type="String" Name="Title" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EmailAlt" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="UserId" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Notes" MaxLength="1200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="rawmessage">
           <Key>
@@ -1149,6 +1323,7 @@
           <NavigationProperty Name="people" Relationship="GxAlertModel.PersonState" FromRole="state" ToRole="person" />
           <NavigationProperty Name="notificationstates" Relationship="GxAlertModel.NotificationStateState" FromRole="state" ToRole="notificationstate" />
           <NavigationProperty Name="deployments" Relationship="GxAlertModel.DeploymentState" FromRole="state" ToRole="deployment" />
+          <Property Type="String" Name="NtpCode" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="test">
           <Key>
@@ -1160,12 +1335,12 @@
           <Property Type="String" Name="SenderVersion" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="SenderUser" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="SenderIp" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="PatientId" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PatientId" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="TestStartedOn" Nullable="false" Precision="3" />
           <Property Type="DateTime" Name="TestEndedOn" Nullable="false" Precision="3" />
           <Property Type="String" Name="AssayHostTestCode" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="CartridgeSerial" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="CartridgeExpirationDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="CartridgeExpirationDate" Precision="3" />
           <Property Type="String" Name="ReagentLotId" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="SystemName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="ModuleSerial" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -1182,6 +1357,18 @@
           <NavigationProperty Name="rawmessages" Relationship="GxAlertModel.RawMessageTest" FromRole="test" ToRole="rawmessage" />
           <NavigationProperty Name="testresults" Relationship="GxAlertModel.TestTestResult" FromRole="test" ToRole="testresult" />
           <NavigationProperty Name="deployment" Relationship="GxAlertModel.TestDeployment" FromRole="test" ToRole="deployment" />
+          <Property Type="DateTime" Name="SendToMshSuccessOn" />
+          <NavigationProperty Name="apilogs" Relationship="GxAlertModel.Test1" FromRole="test" ToRole="apilog" />
+          <Property Type="String" Name="InstrumentSerial" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="TestTypeId" Nullable="false" />
+          <Property Type="String" Name="ExternalTestId" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AssayId" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="BarcodeCheck" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ExpiryDateCheck" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VolumeCheck" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DeviceCheck" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ReagentCheck" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="testtype" Relationship="GxAlertModel.TestTestType" FromRole="test" ToRole="testtype" />
         </EntityType>
         <EntityType Name="testresult">
           <Key>
@@ -1522,6 +1709,7 @@
           <Property Type="String" Name="PhoneBody" MaxLength="1200" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="NotificationName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="notificationlogs" Relationship="GxAlertModel.NotificationLogNotification" FromRole="notification" ToRole="notificationlog" />
+          <Property Type="Boolean" Name="IncludeUnapprovedDeployments" Nullable="false" />
         </EntityType>
         <Association Name="NotificationCountryNotification">
           <End Type="GxAlertModel.notification" Role="notification" Multiplicity="1">
@@ -1696,6 +1884,9 @@
           <NavigationProperty Name="devicedeploymenthistories" Relationship="GxAlertModel.HistoryDeployment" FromRole="deployment" ToRole="devicedeploymenthistory" />
           <NavigationProperty Name="notificationdeployments" Relationship="GxAlertModel.NotificationDeploymentDeployment" FromRole="deployment" ToRole="notificationdeployment" />
           <NavigationProperty Name="tests" Relationship="GxAlertModel.TestDeployment" FromRole="deployment" ToRole="test" />
+          <Property Type="Int32" Name="MshLaboratoryId" />
+          <Property Type="Int32" Name="PartnerId" />
+          <NavigationProperty Name="partner" Relationship="GxAlertModel.DeploymentPartner" FromRole="deployment" ToRole="partner" />
         </EntityType>
         <Association Name="DeploymentCountry">
           <End Type="GxAlertModel.country" Role="country" Multiplicity="0..1" />
@@ -1797,6 +1988,115 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="apilog">
+          <Key>
+            <PropertyRef Name="ApiLogId" />
+          </Key>
+          <Property Type="Int32" Name="ApiLogId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Boolean" Name="IsError" />
+          <Property Type="Int32" Name="TestId" Nullable="false" />
+          <Property Type="String" Name="ErrorCode" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ErrorMessage" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CaseId" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SampleId" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="SampleDateCollected" />
+          <Property Type="DateTime" Name="ReleaseDate" />
+          <Property Type="String" Name="LaboratoryId" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TbResult" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="RifResult" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Comments" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="InitiatedOn" Nullable="false" />
+          <Property Type="String" Name="InitiatedBy" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="InitiatedManually" Nullable="false" />
+          <NavigationProperty Name="test" Relationship="GxAlertModel.Test1" FromRole="apilog" ToRole="test" />
+        </EntityType>
+        <Association Name="Test1">
+          <End Type="GxAlertModel.test" Role="test" Multiplicity="1" />
+          <End Type="GxAlertModel.apilog" Role="apilog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test">
+              <PropertyRef Name="TestId" />
+            </Principal>
+            <Dependent Role="apilog">
+              <PropertyRef Name="TestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="partner">
+          <Key>
+            <PropertyRef Name="PartnerId" />
+          </Key>
+          <Property Type="Int32" Name="PartnerId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="deployments" Relationship="GxAlertModel.DeploymentPartner" FromRole="partner" ToRole="deployment" />
+        </EntityType>
+        <Association Name="DeploymentPartner">
+          <End Type="GxAlertModel.partner" Role="partner" Multiplicity="0..1" />
+          <End Type="GxAlertModel.deployment" Role="deployment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="partner">
+              <PropertyRef Name="PartnerId" />
+            </Principal>
+            <Dependent Role="deployment">
+              <PropertyRef Name="PartnerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="devicetype">
+          <Key>
+            <PropertyRef Name="DeviceTypeId" />
+          </Key>
+          <Property Type="Int32" Name="DeviceTypeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="devices" Relationship="GxAlertModel.DeviceDeviceType" FromRole="devicetype" ToRole="device" />
+          <NavigationProperty Name="testtypes" Relationship="GxAlertModel.TestTypeDeviceType" FromRole="devicetype" ToRole="testtype" />
+        </EntityType>
+        <EntityType Name="testtype">
+          <Key>
+            <PropertyRef Name="TestTypeId" />
+          </Key>
+          <Property Type="Int32" Name="TestTypeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="DeviceTypeId" Nullable="false" />
+          <Property Type="String" Name="Name" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="devicetype" Relationship="GxAlertModel.TestTypeDeviceType" FromRole="testtype" ToRole="devicetype" />
+          <NavigationProperty Name="tests" Relationship="GxAlertModel.TestTestType" FromRole="testtype" ToRole="test" />
+        </EntityType>
+        <Association Name="DeviceDeviceType">
+          <End Type="GxAlertModel.devicetype" Role="devicetype" Multiplicity="1" />
+          <End Type="GxAlertModel.device" Role="device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="devicetype">
+              <PropertyRef Name="DeviceTypeId" />
+            </Principal>
+            <Dependent Role="device">
+              <PropertyRef Name="DeviceTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestTypeDeviceType">
+          <End Type="GxAlertModel.devicetype" Role="devicetype" Multiplicity="1" />
+          <End Type="GxAlertModel.testtype" Role="testtype" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="devicetype">
+              <PropertyRef Name="DeviceTypeId" />
+            </Principal>
+            <Dependent Role="testtype">
+              <PropertyRef Name="DeviceTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TestTestType">
+          <End Type="GxAlertModel.testtype" Role="testtype" Multiplicity="1" />
+          <End Type="GxAlertModel.test" Role="test" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="testtype">
+              <PropertyRef Name="TestTypeId" />
+            </Principal>
+            <Dependent Role="test">
+              <PropertyRef Name="TestTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1816,6 +2116,7 @@
           <EntitySetMapping Name="devices">
             <EntityTypeMapping TypeName="GxAlertModel.device">
               <MappingFragment StoreEntitySet="device">
+                <ScalarProperty Name="DeviceTypeId" ColumnName="DeviceTypeId" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
                 <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
@@ -1849,6 +2150,11 @@
           <EntitySetMapping Name="people">
             <EntityTypeMapping TypeName="GxAlertModel.person">
               <MappingFragment StoreEntitySet="person">
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="EmailAlt" ColumnName="EmailAlt" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="LgaId" ColumnName="LgaId" />
                 <ScalarProperty Name="StateId" ColumnName="StateId" />
@@ -1856,8 +2162,6 @@
                 <ScalarProperty Name="CountryId" ColumnName="CountryId" />
                 <ScalarProperty Name="Cell" ColumnName="Cell" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="PersonId" ColumnName="PersonId" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1896,6 +2200,7 @@
           <EntitySetMapping Name="states">
             <EntityTypeMapping TypeName="GxAlertModel.state">
               <MappingFragment StoreEntitySet="state">
+                <ScalarProperty Name="NtpCode" ColumnName="NtpCode" />
                 <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CountryId" ColumnName="CountryId" />
@@ -1906,6 +2211,16 @@
           <EntitySetMapping Name="tests">
             <EntityTypeMapping TypeName="GxAlertModel.test">
               <MappingFragment StoreEntitySet="test">
+                <ScalarProperty Name="ReagentCheck" ColumnName="ReagentCheck" />
+                <ScalarProperty Name="DeviceCheck" ColumnName="DeviceCheck" />
+                <ScalarProperty Name="VolumeCheck" ColumnName="VolumeCheck" />
+                <ScalarProperty Name="ExpiryDateCheck" ColumnName="ExpiryDateCheck" />
+                <ScalarProperty Name="BarcodeCheck" ColumnName="BarcodeCheck" />
+                <ScalarProperty Name="AssayId" ColumnName="AssayId" />
+                <ScalarProperty Name="ExternalTestId" ColumnName="ExternalTestId" />
+                <ScalarProperty Name="TestTypeId" ColumnName="TestTypeId" />
+                <ScalarProperty Name="InstrumentSerial" ColumnName="InstrumentSerial" />
+                <ScalarProperty Name="SendToMshSuccessOn" ColumnName="SendToMshSuccessOn" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
                 <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
@@ -2018,6 +2333,7 @@
           <EntitySetMapping Name="notifications">
             <EntityTypeMapping TypeName="GxAlertModel.notification">
               <MappingFragment StoreEntitySet="notification">
+                <ScalarProperty Name="IncludeUnapprovedDeployments" ColumnName="IncludeUnapprovedDeployments" />
                 <ScalarProperty Name="NotificationName" ColumnName="NotificationName" />
                 <ScalarProperty Name="PhoneBody" ColumnName="PhoneBody" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
@@ -2052,6 +2368,8 @@
           <EntitySetMapping Name="deployments">
             <EntityTypeMapping TypeName="GxAlertModel.deployment">
               <MappingFragment StoreEntitySet="deployment">
+                <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
+                <ScalarProperty Name="MshLaboratoryId" ColumnName="MshLaboratoryId" />
                 <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
                 <ScalarProperty Name="ApprovedOn" ColumnName="ApprovedOn" />
                 <ScalarProperty Name="Approved" ColumnName="Approved" />
@@ -2072,6 +2390,53 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="HostId" ColumnName="HostId" />
                 <ScalarProperty Name="DeploymentId" ColumnName="DeploymentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="apilogs">
+            <EntityTypeMapping TypeName="GxAlertModel.apilog">
+              <MappingFragment StoreEntitySet="apilog">
+                <ScalarProperty Name="InitiatedManually" ColumnName="InitiatedManually" />
+                <ScalarProperty Name="InitiatedBy" ColumnName="InitiatedBy" />
+                <ScalarProperty Name="InitiatedOn" ColumnName="InitiatedOn" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="RifResult" ColumnName="RifResult" />
+                <ScalarProperty Name="TbResult" ColumnName="TbResult" />
+                <ScalarProperty Name="LaboratoryId" ColumnName="LaboratoryId" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="SampleDateCollected" ColumnName="SampleDateCollected" />
+                <ScalarProperty Name="SampleId" ColumnName="SampleId" />
+                <ScalarProperty Name="CaseId" ColumnName="CaseId" />
+                <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+                <ScalarProperty Name="ErrorCode" ColumnName="ErrorCode" />
+                <ScalarProperty Name="TestId" ColumnName="TestId" />
+                <ScalarProperty Name="IsError" ColumnName="IsError" />
+                <ScalarProperty Name="ApiLogId" ColumnName="ApiLogId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="partners">
+            <EntityTypeMapping TypeName="GxAlertModel.partner">
+              <MappingFragment StoreEntitySet="partner">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="devicetypes">
+            <EntityTypeMapping TypeName="GxAlertModel.devicetype">
+              <MappingFragment StoreEntitySet="devicetype">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DeviceTypeId" ColumnName="DeviceTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="testtypes">
+            <EntityTypeMapping TypeName="GxAlertModel.testtype">
+              <MappingFragment StoreEntitySet="testtype">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DeviceTypeId" ColumnName="DeviceTypeId" />
+                <ScalarProperty Name="TestTypeId" ColumnName="TestTypeId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

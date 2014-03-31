@@ -47,11 +47,11 @@
                 // store in database
                 using (GxAlertEntities bpe = new GxAlertEntities())
                 {
-                    string instrumentSerial = ((NHapi.Model.V25.Datatype.EI)hl7.GetOBSERVATION(0).OBX.GetField(18).GetValue(4)).EntityIdentifier.Value;
+                    string deviceSerial = ((NHapi.Model.V25.Datatype.EI)hl7.GetOBSERVATION(0).OBX.GetField(18).GetValue(5)).EntityIdentifier.Value;
                     string hostId = hl7.MSH.ReceivingApplication.NamespaceID.Value.ToString();
 
                     // if we don't have a deployment for this device and hostId yet, create one:
-                    deployment deployment = bpe.deployments.FirstOrDefault(l => l.HostId == hostId && l.devicedeploymenthistories.Any(h => h.device.Serial == instrumentSerial));
+                    deployment deployment = bpe.deployments.FirstOrDefault(l => l.HostId == hostId && l.devicedeploymenthistories.Any(h => h.device.Serial == deviceSerial));
                     if (deployment == null)
                     {
                         deployment = new deployment();
@@ -62,17 +62,21 @@
                         bpe.deployments.Add(deployment);
 
                         // notify admins of new machine:
-                        new Notifications().SendNewDeploymentNotification(hostId, instrumentSerial, senderIp);
+                        new Notifications().SendNewDeploymentNotification(hostId, deviceSerial, senderIp);
                     }
 
                     // create device if we don't have it yet
-                    device device = bpe.devices.FirstOrDefault(d => d.Serial == instrumentSerial);
+                    device device = bpe.devices.FirstOrDefault(d => d.Serial == deviceSerial);
                     if (device == null)
                     {
+                        //get device type id for GeneXpert
+                        int deviceTypeId = bpe.devicetypes.First(d => d.Name.Contains("GeneXpert")).DeviceTypeId;
+
                         device = new device();
-                        device.Serial = instrumentSerial;
+                        device.DeviceTypeId = deviceTypeId;
+                        device.Serial = deviceSerial;
                         device.InsertedBy = device.UpdatedBy = ConfigurationManager.AppSettings["appName"];
-                        device.InsertedOn = device.InsertedOn = DateTime.Now;
+                        device.InsertedOn = device.UpdatedOn = DateTime.Now;
                         bpe.devices.Add(device);
                     }
 
@@ -97,6 +101,7 @@
                     if (test == null)
                     {
                         test = new test();
+                        test.TestTypeId = 4;//GeneXpert TB/RIF Result
                         test.InsertedOn = DateTime.Now;
                         test.InsertedBy = ConfigurationManager.AppSettings["appName"];
                         test.CartridgeSerial = cartridgeSerial;
@@ -107,7 +112,7 @@
                     test.AssayHostTestCode = hl7.OBR.UniversalServiceIdentifier.Identifier.Value;
                     test.AssayName = ((NHapi.Model.V25.Datatype.CE)hl7.GetOBSERVATION(0).OBX.GetField(3).GetValue(0)).Identifier.ExtraComponents.getComponent(1).Data.ToString();
                     test.AssayVersion = ((NHapi.Model.V25.Datatype.CE)hl7.GetOBSERVATION(0).OBX.GetField(3).GetValue(0)).Identifier.ExtraComponents.getComponent(2).Data.ToString();
-                    test.CartridgeExpirationDate = DateTime.ParseExact(((NHapi.Model.V25.Datatype.EI)hl7.GetOBSERVATION(0).OBX.GetField(18).GetValue(0)).EntityIdentifier.Value.ToString(), "yyyyMMdd", CultureInfo.CurrentCulture);
+                    test.CartridgeExpirationDate = ((NHapi.Model.V25.Datatype.EI)hl7.GetOBSERVATION(0).OBX.GetField(18).GetValue(0)).EntityIdentifier.Value != null ? DateTime.ParseExact(((NHapi.Model.V25.Datatype.EI)hl7.GetOBSERVATION(0).OBX.GetField(18).GetValue(0)).EntityIdentifier.Value.ToString(), "yyyyMMdd", CultureInfo.CurrentCulture) : new DateTime?();
                     test.ComputerName = ((NHapi.Model.V25.Datatype.EI)hl7.GetOBSERVATION(0).OBX.GetField(18).GetValue(5)).EntityIdentifier.Value.ToString();
                     test.SenderUser = ((NHapi.Model.V25.Datatype.XCN)hl7.GetOBSERVATION(0).OBX.GetField(16)[0]).FamilyName.Surname.ToString();
                     test.SenderVersion = hl7.MSH.SendingApplication.Components[2].ToString();
@@ -115,14 +120,32 @@
                     test.deployment = device.deployment;
                     test.MessageSentOn = hl7.MSH.DateTimeOfMessage.Time.GetAsDate();
                     test.ModuleSerial = ((NHapi.Model.V25.Datatype.EI)hl7.GetOBSERVATION(0).OBX.GetField(18).GetValue(3)).EntityIdentifier.Value.ToString();
-                    test.Notes = ((NHapi.Model.V25.Datatype.FT)hl7.GetNTE(0).GetComment(0)).ExtraComponents.getComponent(1).Data.ToString();
+                    test.InstrumentSerial = ((NHapi.Model.V25.Datatype.EI)hl7.GetOBSERVATION(0).OBX.GetField(18).GetValue(4)).EntityIdentifier.Value;
+
+                    var notes1 = ((NHapi.Model.V25.Datatype.FT)hl7.GetNTE(0).GetComment(0)).ExtraComponents.getComponent(1).Data;
+                    var notes2 = ((NHapi.Model.V25.Datatype.FT)hl7.GetNTE(0).GetComment(0)).ExtraComponents.getComponent(2).Data;
+                    test.Notes = ((notes1 != null ? notes1.ToString() + " " : string.Empty) + (notes2 != null ? notes2.ToString() : string.Empty)).Trim();
+                    test.Notes = string.IsNullOrWhiteSpace(test.Notes) ? null : test.Notes;
+
                     test.PatientId = hl7.PID.GetPatientIdentifierList(0).IDNumber.Value;
                     test.ReagentLotId = ((NHapi.Model.V25.Datatype.EI)hl7.GetOBSERVATION(0).OBX.GetField(18).GetValue(1)).EntityIdentifier.Value.ToString();
                     test.ResultText = ((NHapi.Base.Model.Varies)hl7.GetOBSERVATION(0).OBX.GetField(5).GetValue(0)).Data.ToString() + "|" + ((NHapi.Base.Model.Varies)hl7.GetOBSERVATION(19).OBX.GetField(5).GetValue(0)).Data.ToString() + "|";
                     test.SampleId = ((NHapi.Model.V25.Datatype.EI)((NHapi.Model.V25.Datatype.EIP)((NHapi.Model.V25.Segment.SPM)hl7.GetStructure("SPM")).SpecimenID)[0]).EntityIdentifier.Value;
                     test.SystemName = hl7.MSH.SendingApplication.Components[0].ToString();
                     test.TestStartedOn = hl7.GetTIMING_QTY(0).TQ1.StartDateTime.Time.GetAsDate();
-                    test.TestEndedOn = hl7.GetTIMING_QTY(0).TQ1.EndDateTime.Time.GetAsDate();
+
+                    // for some reason, we got a handful of results (we have over 10000 now) that have an invalid end date. 
+                    // we'll just use the start date for those
+                    try
+                    {
+                        test.TestEndedOn = hl7.GetTIMING_QTY(0).TQ1.EndDateTime.Time.GetAsDate();
+                    }
+                    catch
+                    {
+                        test.TestEndedOn = test.TestStartedOn;
+                    }
+
+
                     test.UpdatedBy = ConfigurationManager.AppSettings["appName"];
                     test.UpdatedOn = DateTime.Now;
 
@@ -194,18 +217,13 @@
                         join p in bpe.people on np.PersonId equals p.PersonId
                         join nr in bpe.notificationresults on n.NotificationId equals nr.NotificationId
                         join t in bpe.tests on testId equals t.TestId
-                        where t.deployment.Approved // only send alerts for approved deployments
+                        where (t.deployment.Approved || n.IncludeUnapprovedDeployments)
                         && t.testresults.Any(r => r.ResultTestCodeId == nr.ResultTestCodeId && r.Result == nr.Result) // alert for a given result
-                        && (!n.notificationcountries.Any() || n.notificationcountries.Any(c => c.CountryId == t.deployment.CountryId)) // was test taken in country that notification was set up for?
-                        && (!n.notificationregions.Any() || n.notificationregions.Any(c => c.RegionId == t.deployment.RegionId)) // was test taken in region that notification was set up for?
-                        && (!n.notificationstates.Any() || n.notificationstates.Any(c => c.StateId == t.deployment.StateId)) // was test taken in state that notification was set up for?
-                        && (!n.notificationlgas.Any() || n.notificationlgas.Any(c => c.LgaId == t.deployment.LgaId)) // // was test taken in lga (=county) that notification was set up for?
-                        && (!n.notificationdeployments.Any() || n.notificationdeployments.Any(c => c.DeploymentId == t.DeploymentId)) // was test taken at the exact deployment that notification was set up for?
+                        && n.notificationdeployments.Any(c => c.DeploymentId == t.DeploymentId) // was test taken in one of the deployments that match the notification?
                         select new PersonNotification()
                         {
                             PersonId = p.PersonId,
-                            FirstName = p.FirstName,
-                            LastName = p.LastName,
+                            Name = p.Name,
                             PersonEmail = p.Email,
                             PersonCell = p.Cell,
                             PersonPhone = p.Phone,
@@ -219,12 +237,12 @@
                             Sms = np.Sms,
                             Phone = np.Phone,
                             Email = np.Email,
-                            Result = nr.Result,
                             ResultText = t.ResultText,
                             MessageSentOn = t.MessageSentOn,
                             DeploymentHostId = t.deployment.HostId,
                             DeploymentDescription = t.deployment.Description,
-                            DeploymentCountry = t.deployment.country.Name
+                            DeploymentCountry = t.deployment.country.Name,
+                            TestEndedOn = t.TestEndedOn
                         }).Distinct().ToList();
             }
         }
@@ -261,7 +279,7 @@
                 nl.NotificationId = n.NotificationId;
                 nl.NotificationName = n.NotificationName;
                 nl.PersonId = n.PersonId;
-                nl.PersonName = n.FirstName + " " + n.LastName;
+                nl.PersonName = n.Name;
                 nl.Phone = phone;
                 nl.SentBy = ConfigurationManager.AppSettings["appName"];
                 nl.SentOn = DateTime.Now;
@@ -272,23 +290,14 @@
             }
         }
 
-        /// <summary>
-        /// Get all raw messages that don't have a test ID for reparsing
-        /// </summary>
-        /// <returns>List of raw messages</returns>
         internal static List<rawmessage> GetRawMessagesWithoutTestId()
         {
             using (GxAlertEntities bpe = new GxAlertEntities())
             {
-                return bpe.rawmessages.Where(r => r.TestId == null).ToList();
+                return bpe.rawmessages.Where(r => r.TestId == null && r.RawMessageId == 20446).ToList();
             }
         }
 
-        /// <summary>
-        /// Sets the testId of a raw message
-        /// </summary>
-        /// <param name="rawMessageId">ID of the raw message</param>
-        /// <param name="testId">ID of test</param>
         internal static void UpdateRawMessageTestId(int rawMessageId, int testId)
         {
             using (GxAlertEntities bpe = new GxAlertEntities())

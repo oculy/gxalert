@@ -45,6 +45,7 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,6 +57,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="apilog.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
     <Compile Include="BigPicture.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -87,11 +91,15 @@
     <Compile Include="devicedeploymenthistory.cs">
       <DependentUpon>BigPicture.tt</DependentUpon>
     </Compile>
+    <Compile Include="devicetype.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
     <Compile Include="lga.cs">
       <DependentUpon>BigPicture.tt</DependentUpon>
     </Compile>
     <Compile Include="Logger.cs" />
     <Compile Include="LogLevel.cs" />
+    <Compile Include="MshApi.cs" />
     <Compile Include="notification.cs">
       <DependentUpon>BigPicture.tt</DependentUpon>
     </Compile>
@@ -120,6 +128,9 @@
     <Compile Include="notificationstate.cs">
       <DependentUpon>BigPicture.tt</DependentUpon>
     </Compile>
+    <Compile Include="partner.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
     <Compile Include="person.cs">
       <DependentUpon>BigPicture.tt</DependentUpon>
     </Compile>
@@ -137,6 +148,18 @@
       <DependentUpon>BigPicture.tt</DependentUpon>
     </Compile>
     <Compile Include="Server.cs" />
+    <Compile Include="Service References\MshAuthenticationService\Reference.cs" />
+    <Compile Include="Service References\MshAuthenticationService\Reference1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MshXpertService\Reference.cs" />
+    <Compile Include="Service References\MshXpertService\Reference1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="state.cs">
       <DependentUpon>BigPicture.tt</DependentUpon>
     </Compile>
@@ -144,6 +167,9 @@
       <DependentUpon>BigPicture.tt</DependentUpon>
     </Compile>
     <Compile Include="testresult.cs">
+      <DependentUpon>BigPicture.tt</DependentUpon>
+    </Compile>
+    <Compile Include="testtype.cs">
       <DependentUpon>BigPicture.tt</DependentUpon>
     </Compile>
     <Compile Include="Util.cs" />
@@ -182,9 +208,28 @@
       <LastGenOutput>BigPicture.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Service References\MshAuthenticationService\authenticatorService.wsdl" />
+    <None Include="Service References\MshAuthenticationService\BigPicture.MshAuthenticationService.response.datasource" />
+    <None Include="Service References\MshXpertService\BigPicture.MshXpertService.response.datasource" />
+    <None Include="Service References\MshXpertService\xpertService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Service References\MshAuthenticationService\configuration.svcinfo" />
+    <Content Include="Service References\MshAuthenticationService\configuration91.svcinfo" />
+    <Content Include="Service References\MshAuthenticationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference1.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Service References\MshXpertService\configuration.svcinfo" />
+    <Content Include="Service References\MshXpertService\configuration91.svcinfo" />
+    <Content Include="Service References\MshXpertService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference1.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

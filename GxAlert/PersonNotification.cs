@@ -13,9 +13,7 @@
     {
         public int PersonId { get; set; }
 
-        public string FirstName { get; set; }
-
-        public string LastName { get; set; }
+        public string Name { get; set; }
 
         public string PersonEmail { get; set; }
 
@@ -43,11 +41,11 @@
 
         public bool Email { get; set; }
 
-        public string Result { get; set; }
-
         public string ResultText { get; set; }
 
         public DateTime MessageSentOn { get; set; }
+
+        public DateTime TestEndedOn { get; set; }
 
         public string DeploymentHostId { get; set; }
 

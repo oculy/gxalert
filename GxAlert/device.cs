@@ -26,8 +26,10 @@ namespace GxAlert
         public string InsertedBy { get; set; }
         public System.DateTime UpdatedOn { get; set; }
         public string UpdatedBy { get; set; }
+        public int DeviceTypeId { get; set; }
     
         public virtual ICollection<devicedeploymenthistory> devicedeploymenthistories { get; set; }
         public virtual deployment deployment { get; set; }
+        public virtual devicetype devicetype { get; set; }
     }
 }

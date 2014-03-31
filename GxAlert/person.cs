@@ -21,8 +21,6 @@ namespace GxAlert
         }
     
         public int PersonId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
         public string Email { get; set; }
         public string Cell { get; set; }
         public Nullable<int> CountryId { get; set; }
@@ -30,6 +28,11 @@ namespace GxAlert
         public Nullable<int> StateId { get; set; }
         public Nullable<int> LgaId { get; set; }
         public string Phone { get; set; }
+        public string Title { get; set; }
+        public string EmailAlt { get; set; }
+        public Nullable<int> UserId { get; set; }
+        public string Name { get; set; }
+        public string Notes { get; set; }
     
         public virtual country country { get; set; }
         public virtual lga lga { get; set; }
